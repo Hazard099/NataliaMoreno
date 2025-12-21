@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+			/* ---------------------------------------------------- */
+			/* 1. Split Layout Styles (Hero Section) */
+			/* ---------------------------------------------------- */
+			
+			/* Adjust padding for the introductory section */
+			#intro {
+				padding: 5rem 4rem;
+			}
+			
+			/* Flex container for the hero, creating the split effect (image on one side, content on the other) */
+			.split-hero {
+				display: flex;
+				align-items: center; /* Vertically center the content and image */
+				min-height: 80vh; /* Ensure it takes up most of the viewport height */
+				gap: 0rem; /* Space between the image and content columns */
+				max-width: 1400px; /* Limit the max width of the container */
+				margin: 0 auto; /* Center the container horizontally */
+			}
+			
+			/* Styling for the hero image container */
+			.split-hero .hero-image {
+				flex: 1; /* Allows it to take up one part of the available space */
+				position: relative;
+			}
+			
+			/* Make the image responsive within its container */
+			.split-hero .hero-image img {
+				width: 100%;
+				height: auto;
+				border-radius: 0%; /* Ensure sharp corners */
+			}
+			
+			/* Styling for the hero text content container */
+			.split-hero .hero-content {
+				flex: 1; /* Allows it to take up the other part of the available space */
+				padding: 2rem;
+			}
+			
+			/* Styling for the main heading in the hero content */
+			.split-hero .hero-content h1 {
+				font-size: 3.5rem;
+				line-height: 1.1;
+				margin-bottom: 1.5rem;
+				font-weight: 700;
+			}
+			
+			/* Styling for the paragraph text in the hero content */
+			.split-hero .hero-content p {
+				font-size: 1.1rem;
+				line-height: 1.7;
+				margin-bottom: 2rem;
+				color: rgba(255,255,255,0.8); /* Semi-transparent white text */
+			}
+			
+			/* ---------------------------------------------------- */
+			/* 2. Responsive Adjustments (Media Queries) */
+			/* ---------------------------------------------------- */
+			
+			/* Tablet/Desktop to Tablet breakpoint */
+			@media screen and (max-width: 980px) {
+				/* Stack the split-hero content vertically for smaller screens */
+				.split-hero {
+					flex-direction: column;
+					min-height: auto; /* Allow height to adjust to content */
+				}
+				
+				/* Adjust font size for the largest screens under this breakpoint */
+				.split-hero .hero-content h1 {
+					font-size: 1rem; 
+				}
+			}
+			
+			/* Mobile breakpoint */
+			@media screen and (max-width: 736px) {
+				/* Further adjustment of the main headline font size for smaller mobile screens */
+				.split-hero .hero-content h1 {
+					font-size: 2rem;
+				}
+			}
+		</style>
+	</head>
+	
+	<body class="is-preload">
+		
+		<nav id="top-nav">
+			<div class="nav-left">
+				<a href="#about">Sobre Mi</a>
+				<a href="#team">Equipo</a>
+				<a href="#news">Noticias</a>
+				<a href="#apply">Redes</a>
+			</div>
+			<div class="nav-center">
+				<img src="images/lgo.png" alt="Logo" class="nav-logo-image">
+				</div>
+			<div class="nav-right">
+				<a href="#donate" class="donate-btn">DONAR</a>
+			</div>
+		</nav>
+
+		<div class="floating-logo">
+			<img src="images/logo.png" alt="Logo" class="main-logo">
+		</div>
+		
+		<style>
+			/* Floating logo (initial state) */
+			.floating-logo {
+				position: fixed;
+				top: 15%; /* MODIFIED: Logo moved up to 15% from the top */
+				left: 50%;
+				transform: translate(-50%, -50%); /* Center based on its own dimensions */
+				z-index: 999; /* Ensure it stays on top of other elements */
+				transition: all 0.5s ease; /* Smooth transition for movement/disappearance */
+				pointer-events: none; /* Allows clicks to pass through to elements below */
+			}
+
+			/* When scrolled, logo moves into nav and instantly disappears */
+			body.scrolled .floating-logo {
+				top: 1rem; /* Moves it up to the position of the top navigation */
+				transform: translate(-50%, 0);
+				/* NEW: Add these lines for instant disappearance */
+				opacity: 0;
+				visibility: hidden; /* Ensures it's no longer accessible or visible */
+			}
+		</style>
+		
+		<div id="wrapper" class="fade-in">
+
+				<div id="intro">
+						<div class="split-hero">
+							<div class="hero-image">
+								<img src="images/pic01.png" alt="Hero Image" />
+							</div>
+							<div class="hero-content">
+								<h1>El poder de mi gente en el Congreso</h1>
+								<p>Quiero llevar a la camara de representates las luchas de nuestros barrios populares de Soacha y Cundinamarca, defendiendo una política del amor construida desde la ética y el trabajo de base. Mi prioridad es garantizar vida digna para todas las familias: servicios públicos justos, mínimo vital de agua y reconocimiento del trabajo de cuidado. Es hora de que "los de ruana hagamos la ley" y las mayorías populares tengamos voz real en las decisiones del país.</p>
+								<ul class="actions">
+									<li><a href="#header" class="button large scrolly">DONAR</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				<header id="header">
+						<a href="index.html" class="logo">Estas en un evento? Registrate aqui</a>
+					</header>
+
+				<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">This is Massively</a></li>
+							<li><a href="generic.html">Generic Page</a></li>
+							<li><a href="elements.html">Elements Reference</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<div id="main">
+
+						<article class="post featured">
+							<header class="major">
+								<span class="date">April 25, 2017</span>
+								<h2><a href="#">And this is a<br />
+								massive headline</a></h2>
+								<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
+								facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
+								amet nullam sed etiam veroeros.</p>
+							</header>
+							<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+							<ul class="actions special">
+								<li><a href="#" class="button large">Full Story</a></li>
+							</ul>
+						</article>
+
+						<section class="posts">
+								<article>
+									<header>
+										<span class="date">April 24, 2017</span>
+										<h2><a href="#">Sed magna<br />
+										ipsum faucibus</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 22, 2017</span>
+										<h2><a href="#">Primis eget<br />
+										imperdiet lorem</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 18, 2017</span>
+										<h2><a href="#">Ante mattis<br />
+										interdum dolor</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 14, 2017</span>
+										<h2><a href="#">Tempus sed<br />
+										nulla imperdiet</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 11, 2017</span>
+										<h2><a href="#">Odio magna<br />
+										sed consectetur</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 7, 2017</span>
+										<h2><a href="#">Augue lorem<br />
+										primis vestibulum</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+							</section>
+
+						<footer>
+								<div class="pagination">
+									<a href="#" class="page active">1</a>
+									<a href="#" class="page">2</a>
+									<a href="#" class="page">3</a>
+									<span class="extra">&hellip;</span>
+									<a href="#" class="page">8</a>
+									<a href="#" class="page">9</a>
+									<a href="#" class="page">10</a>
+									<a href="#" class="next">Next</a>
+								</div>
+							</footer>
+
+					</div>
+
+				<footer id="footer">
+						<section>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		    <script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

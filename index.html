@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Massively by HTML5 UP</title>
+		<title>Natalia Moreno | Candidata al Congreso</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		
@@ -9,328 +9,248 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
 		<style>
-			/* ---------------------------------------------------- */
-			/* 1. Split Layout Styles (Hero Section) */
-			/* ---------------------------------------------------- */
-			
-			/* Adjust padding for the introductory section */
-			#intro {
-				padding: 5rem 4rem;
+			/* ==========================================================================
+			   1. GLOBAL & LAYOUT
+			   ========================================================================== */
+			#intro { padding: 5rem 4rem; }
+
+			/* Continuous Scroll Overrides: Removes borders and forces full width */
+			#main {
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0 !important;
+				border: none !important;
 			}
-			
-			/* Flex container for the hero, creating the split effect (image on one side, content on the other) */
+			#main > section, #main > article, #main > footer {
+				width: 100% !important;
+				max-width: 100% !important;
+				padding: 6rem 10% !important;
+				border-top: none !important;
+			}
+
+			/* Section Background Alternation */
+			#about-natalia { background-color: #ffffff; }
+			#proposals-natalia { background-color: #f8f9fa; }
+			#volunteer-natalia { background-color: #ffffff; }
+			#news-section { background-color: #f1f2f6; }
+
+			/* ==========================================================================
+			   2. HERO SECTION (SPLIT LAYOUT)
+			   ========================================================================== */
 			.split-hero {
 				display: flex;
-				align-items: center; /* Vertically center the content and image */
-				min-height: 80vh; /* Ensure it takes up most of the viewport height */
-				gap: 0rem; /* Space between the image and content columns */
-				max-width: 1400px; /* Limit the max width of the container */
-				margin: 0 auto; /* Center the container horizontally */
+				align-items: center;
+				min-height: 80vh;
+				gap: 0rem;
+				max-width: 1400px;
+				margin: 0 auto;
 			}
+			.split-hero .hero-image { flex: 1; position: relative; }
+			.split-hero .hero-image img { width: 100%; height: auto; }
+			.split-hero .hero-content { flex: 1; padding: 2rem; }
+			.split-hero .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; }
+			.split-hero .hero-content p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; color: rgba(255,255,255,0.8); }
+
+			/* ==========================================================================
+			   3. NAVIGATION & LOGOS
+			   ========================================================================== */
 			
-			/* Styling for the hero image container */
-			.split-hero .hero-image {
-				flex: 1; /* Allows it to take up one part of the available space */
-				position: relative;
+			/* Desktop Navigation Bar */
+			#top-nav { background-color: transparent; }
+			body.scrolled #top-nav { background-color: #3f016e; }
+			
+			/* Central Floating Logo (Initial State) */
+			.floating-logo { 
+				position: fixed; 
+				top: 15%; 
+				left: 50%; 
+				transform: translate(-50%, -50%); 
+				z-index: 999; 
+				transition: all 0.5s ease; 
+				pointer-events: none; 
 			}
-			
-			/* Make the image responsive within its container */
-			.split-hero .hero-image img {
-				width: 100%;
-				height: auto;
-				border-radius: 0%; /* Ensure sharp corners */
-			}
-			
-			/* Styling for the hero text content container */
-			.split-hero .hero-content {
-				flex: 1; /* Allows it to take up the other part of the available space */
-				padding: 2rem;
-			}
-			
-			/* Styling for the main heading in the hero content */
-			.split-hero .hero-content h1 {
-				font-size: 3.5rem;
-				line-height: 1.1;
-				margin-bottom: 1.5rem;
-				font-weight: 700;
-			}
-			
-			/* Styling for the paragraph text in the hero content */
-			.split-hero .hero-content p {
-				font-size: 1.1rem;
-				line-height: 1.7;
-				margin-bottom: 2rem;
-				color: rgba(255,255,255,0.8); /* Semi-transparent white text */
-			}
-			
-			/* ---------------------------------------------------- */
-			/* 2. Responsive Adjustments (Media Queries) */
-			/* ---------------------------------------------------- */
-			
-			/* Tablet/Desktop to Tablet breakpoint */
-			@media screen and (max-width: 980px) {
-				/* Stack the split-hero content vertically for smaller screens */
-				.split-hero {
-					flex-direction: column;
-					min-height: auto; /* Allow height to adjust to content */
-				}
-				
-				/* Adjust font size for the largest screens under this breakpoint */
-				.split-hero .hero-content h1 {
-					font-size: 1rem; 
-				}
-			}
-			
-			/* Mobile breakpoint */
+			/* Hides floating logo on scroll */
+			body.scrolled .floating-logo { top: 1rem; transform: translate(-50%, 0); opacity: 0; visibility: hidden; }
+
+			/* ==========================================================================
+			   4. MOBILE STYLES
+			   ========================================================================== */
 			@media screen and (max-width: 736px) {
-				/* Further adjustment of the main headline font size for smaller mobile screens */
-				.split-hero .hero-content h1 {
-					font-size: 2rem;
+				.desktop-only { display: none !important; }
+				#main > section, #main > article { padding: 4rem 1.5rem !important; }
+				
+				/* Mobile Hamburger Toggle */
+				#mobile-menu-toggle {
+					position: fixed; top: 20px; right: 20px; width: 30px; height: 25px; z-index: 10001; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
 				}
+				#mobile-menu-toggle span { display: block; height: 4px; width: 100%; background-color: #ffffff; border-radius: 2px; transition: all 0.3s ease; }
+				
+				/* Hamburger Animation to 'X' */
+				#mobile-menu-toggle.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+				#mobile-menu-toggle.open span:nth-child(2) { opacity: 0; }
+				#mobile-menu-toggle.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+				/* Full-screen Mobile Overlay */
+				#mobile-menu-overlay {
+					position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(63, 1, 110, 0.98); z-index: 10000; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+				}
+				#mobile-menu-overlay.active { display: flex; }
+				#mobile-menu-overlay ul { list-style: none; padding: 0; }
+				#mobile-menu-overlay ul li { margin: 1.5rem 0; }
+				#mobile-menu-overlay ul li a { font-size: 1.8rem; color: white; font-weight: 700; text-transform: uppercase; border-bottom: none; }
+				
+				/* Mobile Hero Adjustments */
+				.split-hero { flex-direction: column; min-height: auto; }
+				.split-hero .hero-content h1 { font-size: 2rem; }
+				#intro .actions.stacked li { width: 100%; padding: 0.5rem 0; }
+			}
+
+			/* Utility to hide mobile elements on desktop */
+			@media screen and (min-width: 737px) {
+				.mobile-only { display: none !important; }
 			}
 		</style>
 	</head>
-	
+
 	<body class="is-preload">
-		
-		<nav id="top-nav">
+
+		<div id="mobile-menu-toggle" class="mobile-only">
+			<span></span><span></span><span></span>
+		</div>
+
+		<div id="mobile-menu-overlay">
+			<nav>
+				<ul>
+					<li><a href="#intro">Inicio</a></li>
+					<li><a href="#about-natalia">Mi Historia</a></li>
+					<li><a href="#proposals-natalia">Propuestas</a></li>
+					<li><a href="#volunteer-natalia">Participa</a></li>
+					<li><a href="#news-section">Noticias</a></li>
+					<li><a href="#footer" class="donate-link-mobile">DONAR</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<nav id="top-nav" class="desktop-only">
 			<div class="nav-left">
-				<a href="#about">Sobre Mi</a>
-				<a href="#team">Equipo</a>
-				<a href="#news">Noticias</a>
-				<a href="#apply">Redes</a>
+				<a href="#about-natalia">Acerca De Mi</a>
+				<a href="#proposals-natalia">Propuestas</a>
+				<a href="#news-section">Noticias</a>
+				<a href="#volunteer-natalia">Participa</a>
 			</div>
 			<div class="nav-center">
 				<img src="images/lgo.png" alt="Logo" class="nav-logo-image">
-				</div>
+			</div>
 			<div class="nav-right">
-				<a href="#donate" class="donate-btn">DONAR</a>
+				<a href="#footer" class="donate-btn">DONAR</a>
 			</div>
 		</nav>
 
-		<div class="floating-logo">
+		<div class="floating-logo desktop-only">
 			<img src="images/logo.png" alt="Logo" class="main-logo">
 		</div>
-		
-		<style>
-			/* Floating logo (initial state) */
-			.floating-logo {
-				position: fixed;
-				top: 15%; /* MODIFIED: Logo moved up to 15% from the top */
-				left: 50%;
-				transform: translate(-50%, -50%); /* Center based on its own dimensions */
-				z-index: 999; /* Ensure it stays on top of other elements */
-				transition: all 0.5s ease; /* Smooth transition for movement/disappearance */
-				pointer-events: none; /* Allows clicks to pass through to elements below */
-			}
-
-			/* When scrolled, logo moves into nav and instantly disappears */
-			body.scrolled .floating-logo {
-				top: 1rem; /* Moves it up to the position of the top navigation */
-				transform: translate(-50%, 0);
-				/* NEW: Add these lines for instant disappearance */
-				opacity: 0;
-				visibility: hidden; /* Ensures it's no longer accessible or visible */
-			}
-		</style>
 		
 		<div id="wrapper" class="fade-in">
 
 				<div id="intro">
-						<div class="split-hero">
-							<div class="hero-image">
-								<img src="images/pic01.png" alt="Hero Image" />
-							</div>
-							<div class="hero-content">
-								<h1>El poder de mi gente en el Congreso</h1>
-								<p>Quiero llevar a la camara de representates las luchas de nuestros barrios populares de Soacha y Cundinamarca, defendiendo una política del amor construida desde la ética y el trabajo de base. Mi prioridad es garantizar vida digna para todas las familias: servicios públicos justos, mínimo vital de agua y reconocimiento del trabajo de cuidado. Es hora de que "los de ruana hagamos la ley" y las mayorías populares tengamos voz real en las decisiones del país.</p>
-								<ul class="actions">
-									<li><a href="#header" class="button large scrolly">DONAR</a></li>
-								</ul>
-							</div>
+					<div class="split-hero">
+						<div class="hero-image">
+							<img src="images/pic01.png" alt="Hero Image" />
+						</div>
+						<div class="hero-content">
+							<h1>El poder de mi gente en el Congreso</h1>
+							<p>Defendiendo una política del amor construida desde la ética y el trabajo de base para Soacha y Cundinamarca.</p>
+							<ul class="actions stacked">
+								<li><a href="https://wa.me/573000000000" class="button primary large fit">Hablar con Natalia</a></li>
+								<li><a href="#proposals-natalia" class="button large fit">Conocer el Programa</a></li>
+							</ul>
 						</div>
 					</div>
-
-				<header id="header">
-						<a href="index.html" class="logo">Estas en un evento? Registrate aqui</a>
-					</header>
-
-				<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">This is Massively</a></li>
-							<li><a href="generic.html">Generic Page</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+				</div>
 
 				<div id="main">
 
-						<article class="post featured">
-							<header class="major">
-								<span class="date">April 25, 2017</span>
-								<h2><a href="#">And this is a<br />
-								massive headline</a></h2>
-								<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-								facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-								amet nullam sed etiam veroeros.</p>
-							</header>
-							<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+					<section id="about-natalia">
+						<header class="major">
+							<h2>Mi Historia</h2>
+						</header>
+						<p>Soy una vecina de Soacha que entiende que la política se hace con el corazón y los pies en el territorio. Mi prioridad es garantizar vida digna para todas las familias.</p>
+					</section>
+
+					<section id="proposals-natalia">
+						<header class="major">
+							<h2>Propuestas por el Cambio</h2>
+						</header>
+						<div class="row">
+							<div class="col-6 col-12-small">
+								<h3>Mujeres y Cuidado</h3>
+								<p>Reconocimiento económico al trabajo del hogar y redes de apoyo comunitario.</p>
+							</div>
+							<div class="col-6 col-12-small">
+								<h3>Territorios y Agua</h3>
+								<p>Protección del mínimo vital de agua y defensa de la soberanía alimentaria.</p>
+							</div>
+						</div>
+					</section>
+
+					<section id="volunteer-natalia">
+						<header class="major">
+							<h2>Participa en el Cambio</h2>
+						</header>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half"><input type="text" name="name" placeholder="Nombre" /></div>
+								<div class="field half"><input type="text" name="whatsapp" placeholder="WhatsApp" /></div>
+							</div>
 							<ul class="actions special">
-								<li><a href="#" class="button large">Full Story</a></li>
+								<li><input type="submit" value="Unirme al Cambio" class="primary" /></li>
 							</ul>
-						</article>
+						</form>
+					</section>
 
-						<section class="posts">
-								<article>
-									<header>
-										<span class="date">April 24, 2017</span>
-										<h2><a href="#">Sed magna<br />
-										ipsum faucibus</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 22, 2017</span>
-										<h2><a href="#">Primis eget<br />
-										imperdiet lorem</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 18, 2017</span>
-										<h2><a href="#">Ante mattis<br />
-										interdum dolor</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 14, 2017</span>
-										<h2><a href="#">Tempus sed<br />
-										nulla imperdiet</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 11, 2017</span>
-										<h2><a href="#">Odio magna<br />
-										sed consectetur</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 7, 2017</span>
-										<h2><a href="#">Augue lorem<br />
-										primis vestibulum</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-							</section>
+					<section id="news-section">
+						<header class="major">
+							<h2>Noticias y Agenda</h2>
+						</header>
+						<div class="posts">
+							<article>
+								<h2><a href="#">Recorrido por Soacha</a></h2>
+								<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+								<p>Construyendo propuestas desde la base en nuestro municipio.</p>
+							</article>
+							<article>
+								<h2><a href="#">Agenda Semanal</a></h2>
+								<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+								<p>Conoce los puntos de encuentro de esta semana.</p>
+							</article>
+						</div>
+					</section>
 
-						<footer>
-								<div class="pagination">
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a>
-								</div>
-							</footer>
-
-					</div>
+				</div>
 
 				<footer id="footer">
+					<section class="split contact">
 						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
+							<h3>WhatsApp</h3>
+							<p><a href="https://wa.me/573000000000">+57 300 000 0000</a></p>
 						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
+						<section>
+							<h3>Redes Sociales</h3>
+							<ul class="icons alt">
+								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							</ul>
 						</section>
-					</footer>
+					</section>
+				</footer>
 
 				<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+					<ul><li>&copy; Natalia Moreno</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+				</div>
 
 			</div>
 
-		<script src="assets/js/jquery.min.js"></script>
+		    <script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
