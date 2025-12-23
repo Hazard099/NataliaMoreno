@@ -1471,7 +1471,17 @@ section {
    ======================================================================== */
 
 #mobile-menu-toggle {
-	display: none;
+    position: fixed;
+    top: 15px !important;    /* Más alto en la pantalla */
+    left: 15px !important;   /* Cambiado de derecha a izquierda */
+    right: auto !important;  /* Desactiva la posición derecha previa */
+    width: 30px;
+    height: 25px;
+    z-index: 10001;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #mobile-menu-overlay {
@@ -1564,39 +1574,78 @@ section {
 	#top-nav {
 		display: none !important;
 	}
-	
+
 	#mobile-menu-toggle {
 		position: fixed;
-		top: 20px;
-		right: 20px;
-		width: 30px;
-		height: 25px;
+		top: 25px !important;    /* Bajó de 15px a 25px */
+		left: 25px !important;   /* Se movió a la derecha de 15px a 25px */
+		width: 26px !important;  /* Reducido de 30px a 26px */
+		height: 18px !important; /* Altura proporcional para que se vea más pequeño */
 		z-index: 10001;
 		cursor: pointer;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 	}
+
+	/* Ajuste de la animación "X" para el nuevo tamaño más pequeño */
+	#mobile-menu-toggle.open span:nth-child(1) {
+		transform: translateY(8px) rotate(45deg); /* Centrado para 18px de altura */
+	}
+
+	#mobile-menu-toggle.open span:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg); /* Centrado para 18px de altura */
+	}
+	
+	.mobile-parche-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 10001;
+        
+        /* Botón blanco con texto morado */
+        background-color: #ffffff !important;
+        color: #3f016e !important; 
+        border: 2px solid #3f016e !important; /* Borde para que no se pierda en fondos claros */
+        
+        /* Texto más grande */
+        font-size: 0.9rem !important; 
+        padding: 0 1.2rem !important;
+        height: 2.5rem !important;
+        
+        border-radius: 50px;
+        font-family: "Source Sans Pro", Helvetica, sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        border-bottom: none !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.2s ease;
+    }
 	
 	#mobile-menu-toggle span {
 		display: block;
-		height: 4px;
+		height: 2px; /* Grosor reducido de 4px a 2px */
 		width: 100%;
 		background-color: #ffffff;
-		border-radius: 2px;
+		border-radius: 1px; /* Ajustado proporcionalmente */
 		transition: all 0.3s ease;
 	}
-	
+
+	/* Ajuste de la animación para las líneas más delgadas */
 	#mobile-menu-toggle.open span:nth-child(1) {
-		transform: translateY(10px) rotate(45deg);
+		transform: translateY(11px) rotate(45deg); /* Ajustado para centrar mejor */
 	}
-	
+
 	#mobile-menu-toggle.open span:nth-child(2) {
 		opacity: 0;
 	}
 	
 	#mobile-menu-toggle.open span:nth-child(3) {
-		transform: translateY(-11px) rotate(-45deg);
+		transform: translateY(-12px) rotate(-45deg); /* Ajustado para centrar mejor */
 	}
 	
 	#mobile-menu-overlay {
@@ -1688,14 +1737,9 @@ section {
 	}
 	
 	.hero-image {
-		flex: 1;
-	}
-	
-	.hero-image img {
-		max-width: 100%;
-		height: auto;
-		display: block;
-	}
+        width: 100% !important;
+        margin-top: 2rem !important;
+    }
 	
 	#main > * {
 		padding: 4rem 1.5rem;
@@ -1860,6 +1904,38 @@ section {
 	#mobile-menu-toggle {
 		display: none;
 	}
+}
+
+
+@media screen and (max-width: 736px) {
+    /* Reduce el padding superior para que la imagen inicie más arriba */
+    #intro { 
+        height: auto !important; 
+        min-height: 100vh !important; 
+        padding: 3rem 1rem 2rem 1rem !important; 
+    }
+
+    /* Hace que el contenedor de la imagen ocupe más espacio */
+    .hero-image {
+        width: 125% !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Escala la imagen para que se vea más grande en el celular */
+    .hero-image img {
+        width: 180% !important;
+        transform: scale(1.1);
+        margin-top: 0rem !important;
+		margin-left: 1rem !important;
+    }
+
+    .split-hero { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 1rem !important;
+    }
+
+    .desktop-only { display: none !important; }
 }
 
 /* ==========================================================================
@@ -2061,4 +2137,168 @@ select, input {
 .btn-primary:hover {
   transform: translateY(-3px);
   background-color: #333;
+}
+
+/* ==========================================================================
+   HAGAMOS PARCHE - ESTILO MEJORADO
+   ========================================================================== */
+
+.hagamos-parche {
+    padding: 8rem 10% !important;
+    text-align: center;
+    background-color: #f1f2f6 !important; /* Mismo gris que propuestas */
+}
+
+.hagamos-parche h2 {
+    color: #212931;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.hagamos-parche h2 span {
+    color: #18bfef; /* Cian de la campaña */
+}
+
+.centered-subtitle {
+    text-align: center !important;
+    margin: 0 auto 3rem auto !important;
+    max-width: 700px;
+    font-style: italic;
+    color: #717981;
+}
+
+/* Tarjeta contenedora similar a .proposal-card */
+.parche-card {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.parche-form .form-group label {
+    display: block;
+    text-align: left;
+    font-size: 0.75rem;
+    color: #3f016e; /* Morado firma */
+    margin-bottom: 0.5rem;
+}
+
+.parche-form select {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%233f016e' /%3E%3C/svg%3E") !important;
+    background-size: 1.25rem;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1rem) center;
+    
+    /* NUEVOS AJUSTES DE ALINEACIÓN */
+    line-height: 1.5 !important; 
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    vertical-align: middle;
+}
+
+.parche-form input, .parche-form select {
+    border: 2px solid #eeeeee;
+    border-radius: 8px;
+    height: 3.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.parche-form input:focus, .parche-form select:focus {
+    border-color: #18bfef !important;
+}
+
+.parche-form .form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Botón principal estilo campaña */
+.btn-primary {
+    background-color: #3f016e !important;
+    color: #ffffff !important;
+    width: 100%;
+    border-radius: 50px !important;
+    height: 3.5rem !important;
+    font-size: 0.9rem !important;
+    margin-top: 1rem;
+    box-shadow: none !important;
+
+    /* NUEVOS AJUSTES PARA CENTRADO PERFECTO */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important; /* Evita que el interlineado del tema mueva el texto */
+    padding: 0 !important; /* El tamaño lo da el height, no el padding */
+}
+
+.btn-primary:hover {
+    background-color: #18bfef !important;
+    transform: translateY(-2px);
+}
+
+/* Ajuste móvil */
+@media screen and (max-width: 736px) {
+    .parche-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .parche-card {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    /* 1. Refined Menu Bars: Thinner, smaller, and moved right/down */
+    #mobile-menu-toggle {
+        position: fixed;
+        top: 25px !important;
+        left: 25px !important;
+        width: 26px !important;
+        height: 18px !important;
+        z-index: 10001;
+    }
+
+    #mobile-menu-toggle span {
+        height: 2px !important; /* Thinner lines */
+        background-color: #ffffff;
+    }
+
+    /* 2. Top Right Button: White background with purple text */
+    .mobile-parche-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 10001;
+        background-color: #ffffff !important;
+        color: #3f016e !important;
+        border: 2px solid #3f016e !important;
+        font-size: 0.9rem !important;
+        padding: 0 1.2rem !important;
+        height: 2.5rem !important;
+        border-radius: 50px;
+        font-weight: 900;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* 3. Centered Campaign Logo */
+    .mobile-logo-wrapper {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+        margin-top: 1.4rem; /* Pushes it below the menu/button row */
+        margin-bottom: 0rem;
+    }
+
+    .mobile-logo-wrapper img {
+        width: 80%;
+        max-width: 280px;
+        height: auto;
+    }
 }
