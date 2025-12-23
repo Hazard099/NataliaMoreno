@@ -1570,32 +1570,40 @@ section {
 	}
 }
 
-@media screen and (max-width: 736px) {
-	#top-nav {
-		display: none !important;
-	}
+	@media screen and (max-width: 736px) {
+		#mobile-menu-toggle {
+			position: fixed;
+			top: 25px !important;
+			left: 25px !important;
+			width: 26px !important;
+			height: 18px !important; /* Total height of the container */
+			z-index: 10001;
+			display: flex !important;
+			flex-direction: column;
+			justify-content: space-between;
+			cursor: pointer;
+		}
 
-	#mobile-menu-toggle {
-		position: fixed;
-		top: 25px !important;    /* Bajó de 15px a 25px */
-		left: 25px !important;   /* Se movió a la derecha de 15px a 25px */
-		width: 26px !important;  /* Reducido de 30px a 26px */
-		height: 18px !important; /* Altura proporcional para que se vea más pequeño */
-		z-index: 10001;
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
+		#mobile-menu-toggle span {
+			display: block !important; /* Essential to show the bar */
+			height: 2px !important;    /* Thinner lines */
+			width: 100% !important;   /* Essential to stretch the bar */
+			background-color: #ffffff !important;
+			border-radius: 1px;
+			transition: all 0.3s ease;
+		}
 
-	/* Ajuste de la animación "X" para el nuevo tamaño más pequeño */
-	#mobile-menu-toggle.open span:nth-child(1) {
-		transform: translateY(8px) rotate(45deg); /* Centrado para 18px de altura */
-	}
+		/* Animation for the "X" when menu is open */
+		#mobile-menu-toggle.open span:nth-child(1) {
+			transform: translateY(8px) rotate(45deg);
+		}
+		#mobile-menu-toggle.open span:nth-child(2) {
+			opacity: 0;
+		}
+		#mobile-menu-toggle.open span:nth-child(3) {
+			transform: translateY(-8px) rotate(-45deg);
+		}
 
-	#mobile-menu-toggle.open span:nth-child(3) {
-		transform: translateY(-8px) rotate(-45deg); /* Centrado para 18px de altura */
-	}
 	
 	.mobile-parche-btn {
         display: flex !important;

@@ -71,7 +71,6 @@
 
 	// 4. Intro & Main Scroll Logic
 	if ($intro.length > 0) {
-		// Fix for IE min-height
 		if (browser.name == 'ie') {
 			$window.on('resize.ie-intro-fix', function() {
 				var h = $intro.height();
@@ -79,7 +78,7 @@
 			}).trigger('resize.ie-intro-fix');
 		}
 
-		// Hide intro based on scroll breakpoints
+	// Hide intro based on scroll breakpoints
 		breakpoints.on('>small', function() {
 			$main.unscrollex().scrollex({
 				mode: 'bottom', top: '25vh', bottom: '-50vh',
@@ -91,7 +90,7 @@
 		breakpoints.on('>small', function() {
 			$main.unscrollex().scrollex({
 				mode: 'top', 
-				top: '100vh', // Trigger when the top of #main hits the bottom of the screen
+				top: '100vh',
 				enter: function() { $intro.addClass('hidden'); },
 				leave: function() { $intro.removeClass('hidden'); }
 			});
@@ -114,12 +113,9 @@
 		$menuToggle.on('click', function() {
 			$(this).toggleClass('open');
 			$menuOverlay.toggleClass('active');
-			
-			// Prevent background scrolling when menu is open
 			$body.css('overflow', $menuOverlay.hasClass('active') ? 'hidden' : 'auto');
 		});
 
-		// Close menu when a link is clicked
 		$menuOverlay.find('a').on('click', function() {
 			$menuToggle.removeClass('open');
 			$menuOverlay.removeClass('active');
@@ -127,32 +123,68 @@
 		});
 	}
 
-	// 5. Desktop Top Nav logic
+	// 7. Desktop Top Nav logic
 	if ($topNav.length > 0) {
 		$window.on('scroll', function() {
 			if ($window.scrollTop() > 50) {
 				$body.addClass('scrolled');
-				// This now only handles the background color change of the nav
 			} else {
 				$body.removeClass('scrolled');
 			}
 		});
 	}
 
+	// 8. Parche selection + redirect logic (ADD HERE)
+	let selectedParcheUrl = null;
+
+	$(".parche-option").on("click", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		selectedParcheUrl = $(this).data("url");
+		$(".parche-option").removeClass("selected");
+		$(this).addClass("selected");
+	});
+
+	$(".donate-btn").on("click", function (e) {
+		if (!selectedParcheUrl) return;
+		e.preventDefault();
+		e.stopPropagation();
+		window.location.href = selectedParcheUrl;
+	});
+
+	$(".parche-form").on("submit", function (e) {
+		e.preventDefault();
+		const value = $(this).find("select").val();
+
+		const routes = {
+			calle: "https://docs.google.com/forms/d/e/1FAIpQLSe6EfhHE6Hpfs-m6E5bIifOuciUlWy2TRvHobbyXDqRNePAOg/viewform?usp=dialog",
+			voto: "https://docs.google.com/forms/d/e/1FAIpQLSdFG-pZsmX1rhW-S2cXzcwYWGI8V5gmFPe-dS88swi8_InWJg/viewform?usp=dialog",
+			cultura: "https://docs.google.com/forms/d/e/1FAIpQLSflJuXUlEjAVFAckwg1W7Cxl2mY12ylAbkiPBs_c61Wyr_amg/viewform?usp=dialog",
+			comunicacion: "https://docs.google.com/forms/d/e/1FAIpQLSdpaALZ1tWVGwwkkxpQN2xa2Dic3EdlTTs9qYZ2puXcuHxDZQ/viewform?usp=dialog"
+		};
+
+		if (!routes[value]) {
+			alert("Por favor selecciona un parche");
+			return;
+		}
+
+		window.location.href = routes[value];
+	});
+
 })(jQuery);
 
 function toggleReadMore() {
-    var dots = document.getElementById("dots");
-    var moreText = document.getElementById("more-text");
-    var btnText = document.getElementById("readMoreBtn");
+	var dots = document.getElementById("dots");
+	var moreText = document.getElementById("more-text");
+	var btnText = document.getElementById("readMoreBtn");
 
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "Leer más"; 
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "Leer menos"; 
-        moreText.style.display = "inline";
-    }
+	if (dots.style.display === "none") {
+		dots.style.display = "inline";
+		btnText.innerHTML = "Leer más"; 
+		moreText.style.display = "none";
+	} else {
+		dots.style.display = "none";
+		btnText.innerHTML = "Leer menos"; 
+		moreText.style.display = "inline";
+	}
 }
