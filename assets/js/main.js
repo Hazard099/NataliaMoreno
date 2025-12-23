@@ -138,19 +138,14 @@
 	let selectedParcheUrl = null;
 
 	$(".parche-option").on("click", function (e) {
-		e.preventDefault();
-		e.stopPropagation();
-		selectedParcheUrl = $(this).data("url");
-		$(".parche-option").removeClass("selected");
-		$(this).addClass("selected");
+  	e.preventDefault();
+  	e.stopPropagation();
+
+  	const url = $(this).data("url");
+  	window.location.href = url;
 	});
 
-	$(".donate-btn").on("click", function (e) {
-		if (!selectedParcheUrl) return;
-		e.preventDefault();
-		e.stopPropagation();
-		window.location.href = selectedParcheUrl;
-	});
+
 
 	$(".parche-form").on("submit", function (e) {
 		e.preventDefault();
