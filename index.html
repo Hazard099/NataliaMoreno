@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Natalia Moreno | Candidata al Congreso</title>
+		<title>Natalia Moreno | Cámara por Cundinamarca</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		
@@ -10,104 +10,54 @@
 		
 		<style>
 			/* ==========================================================================
-			   1. GLOBAL & LAYOUT
+			   FULL-SCREEN PURPLE LANDING PAGE & RESET
 			   ========================================================================== */
-			#intro { padding: 5rem 4rem; }
+			#wrapper { padding-top: 0 !important; margin-top: 0 !important; top: 0 !important; }
+			#header { display: none !important; height: 0 !important; }
 
-			/* Continuous Scroll Overrides: Removes borders and forces full width */
+			#intro {
+				padding-top: 3.5rem !important;
+				margin-top: 0 !important;
+				height: 100vh !important;
+				min-height: 100vh !important;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				box-sizing: border-box;
+				position: relative;
+				z-index: 1;
+			}
+
 			#main {
+				background-color: #ffffff;
+				position: relative;
+				z-index: 2;
 				width: 100% !important;
 				max-width: 100% !important;
 				margin: 0 !important;
 				border: none !important;
 			}
-			#main > section, #main > article, #main > footer {
-				width: 100% !important;
-				max-width: 100% !important;
-				padding: 6rem 10% !important;
-				border-top: none !important;
-			}
 
-			/* Section Background Alternation */
-			#about-natalia { background-color: #ffffff; }
-			#proposals-natalia { background-color: #f8f9fa; }
-			#volunteer-natalia { background-color: #ffffff; }
-			#news-section { background-color: #f1f2f6; }
+			#main > section { padding: 6rem 10% !important; width: 100% !important; }
 
-			/* ==========================================================================
-			   2. HERO SECTION (SPLIT LAYOUT)
-			   ========================================================================== */
 			.split-hero {
 				display: flex;
 				align-items: center;
-				min-height: 80vh;
-				gap: 0rem;
 				max-width: 1400px;
 				margin: 0 auto;
+				gap: 2rem;
+				width: 100%;
 			}
-			.split-hero .hero-image { flex: 1; position: relative; }
-			.split-hero .hero-image img { width: 100%; height: auto; }
-			.split-hero .hero-content { flex: 1; padding: 2rem; }
-			.split-hero .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 700; }
-			.split-hero .hero-content p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; color: rgba(255,255,255,0.8); }
 
-			/* ==========================================================================
-			   3. NAVIGATION & LOGOS
-			   ========================================================================== */
-			
-			/* Desktop Navigation Bar */
-			#top-nav { background-color: transparent; }
-			body.scrolled #top-nav { background-color: #3f016e; }
-			
-			/* Central Floating Logo (Initial State) */
-			.floating-logo { 
-				position: fixed; 
-				top: 15%; 
-				left: 50%; 
-				transform: translate(-50%, -50%); 
-				z-index: 999; 
-				transition: all 0.5s ease; 
-				pointer-events: none; 
-			}
-			/* Hides floating logo on scroll */
-			body.scrolled .floating-logo { top: 1rem; transform: translate(-50%, 0); opacity: 0; visibility: hidden; }
+			/* Section Colors */
+			#about-natalia { background-color: #ffffff; }
+			#proposals-natalia { background-color: #f8f9fa; }
+			#volunteer-natalia { background-color: #ffffff; }
 
-			/* ==========================================================================
-			   4. MOBILE STYLES
-			   ========================================================================== */
 			@media screen and (max-width: 736px) {
+				#intro { height: auto !important; min-height: 100vh !important; padding: 5rem 1.5rem 2rem 1.5rem !important; }
+				.split-hero { flex-direction: column; text-align: center; }
 				.desktop-only { display: none !important; }
-				#main > section, #main > article { padding: 4rem 1.5rem !important; }
-				
-				/* Mobile Hamburger Toggle */
-				#mobile-menu-toggle {
-					position: fixed; top: 20px; right: 20px; width: 30px; height: 25px; z-index: 10001; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
-				}
-				#mobile-menu-toggle span { display: block; height: 4px; width: 100%; background-color: #ffffff; border-radius: 2px; transition: all 0.3s ease; }
-				
-				/* Hamburger Animation to 'X' */
-				#mobile-menu-toggle.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
-				#mobile-menu-toggle.open span:nth-child(2) { opacity: 0; }
-				#mobile-menu-toggle.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
-
-				/* Full-screen Mobile Overlay */
-				#mobile-menu-overlay {
-					position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(63, 1, 110, 0.98); z-index: 10000; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center;
-				}
-				#mobile-menu-overlay.active { display: flex; }
-				#mobile-menu-overlay ul { list-style: none; padding: 0; }
-				#mobile-menu-overlay ul li { margin: 1.5rem 0; }
-				#mobile-menu-overlay ul li a { font-size: 1.8rem; color: white; font-weight: 700; text-transform: uppercase; border-bottom: none; }
-				
-				/* Mobile Hero Adjustments */
-				.split-hero { flex-direction: column; min-height: auto; }
-				.split-hero .hero-content h1 { font-size: 2rem; }
-				#intro .actions.stacked li { width: 100%; padding: 0.5rem 0; }
-			}
-
-			/* Utility to hide mobile elements on desktop */
-			@media screen and (min-width: 737px) {
-				.mobile-only { display: none !important; }
 			}
 		</style>
 	</head>
@@ -122,141 +72,212 @@
 			<nav>
 				<ul>
 					<li><a href="#intro">Inicio</a></li>
-					<li><a href="#about-natalia">Mi Historia</a></li>
+					<li><a href="#about-natalia">Sobre Mí</a></li>
 					<li><a href="#proposals-natalia">Propuestas</a></li>
-					<li><a href="#volunteer-natalia">Participa</a></li>
-					<li><a href="#news-section">Noticias</a></li>
-					<li><a href="#footer" class="donate-link-mobile">DONAR</a></li>
+					<li><hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 0;"></li>
+					<li><span style="color: #18bfef; font-size: 0.8rem; font-weight: 900;">HAGAMOS PARCHE</span></li>
+					<li><a href="LINK_CALLE" style="font-size: 1.2rem;">Parche Calle</a></li>
+					<li><a href="LINK_VOTO" style="font-size: 1.2rem;">Parche Voto</a></li>
+					<li><a href="LINK_CULTURA" style="font-size: 1.2rem;">Parche Cultura</a></li>
+					<li><a href="LINK_COMUNICACION" style="font-size: 1.2rem;">Parche Comunicación</a></li>
 				</ul>
 			</nav>
 		</div>
 
 		<nav id="top-nav" class="desktop-only">
 			<div class="nav-left">
-				<a href="#about-natalia">Acerca De Mi</a>
+				<a href="#about-natalia">Sobre Mí</a>
 				<a href="#proposals-natalia">Propuestas</a>
 				<a href="#news-section">Noticias</a>
-				<a href="#volunteer-natalia">Participa</a>
 			</div>
 			<div class="nav-center">
 				<img src="images/lgo.png" alt="Logo" class="nav-logo-image">
 			</div>
 			<div class="nav-right">
-				<a href="#footer" class="donate-btn">DONAR</a>
+				<div class="dropdown">
+					<button class="donate-btn">Hagamos Parche <i class="fas fa-chevron-down" style="font-size: 0.6rem; margin-left: 5px;"></i></button>
+					<div class="dropdown-content">
+						<a href="LINK_CALLE">Parche Calle</a>
+						<a href="LINK_VOTO">Parche Voto</a>
+						<a href="LINK_CULTURA">Parche Cultura</a>
+						<a href="LINK_COMUNICACION">Parche Comunicación</a>
+					</div>
+				</div>
 			</div>
 		</nav>
 
-		<div class="floating-logo desktop-only">
-			<img src="images/logo.png" alt="Logo" class="main-logo">
-		</div>
-		
 		<div id="wrapper" class="fade-in">
 
-				<div id="intro">
-					<div class="split-hero">
-						<div class="hero-image">
-							<img src="images/pic01.png" alt="Hero Image" />
-						</div>
-						<div class="hero-content">
-							<h1>El poder de mi gente en el Congreso</h1>
-							<p>Defendiendo una política del amor construida desde la ética y el trabajo de base para Soacha y Cundinamarca.</p>
-							<ul class="actions stacked">
-								<li><a href="https://wa.me/573000000000" class="button primary large fit">Hablar con Natalia</a></li>
-								<li><a href="#proposals-natalia" class="button large fit">Conocer el Programa</a></li>
-							</ul>
-						</div>
+			<div id="intro">
+				<div class="split-hero">
+					<div class="hero-image">
+						<img src="images/pic01.png" alt="Natalia Moreno" />
+					</div>
+					<div class="hero-content">
+						<h1>El 8 de marzo vota por Iván Cepeda Presidente</h1>
+						<p>Marca una X en los tarjetones de Cámara y Senado. ¡Hablemos, escríbeme y empecemos a parchar!</p>
+						<ul class="actions stacked">
+							<li><a href="https://wa.me/573000000000" class="button primary large fit">Hablemos por WhatsApp</a></li>
+							<li><a href="#volunteer-natalia" class="button large fit">Empecemos a parchar</a></li>
+						</ul>
 					</div>
 				</div>
-
-				<div id="main">
-
-					<section id="about-natalia">
-						<header class="major">
-							<h2>Mi Historia</h2>
-						</header>
-						<p>Soy una vecina de Soacha que entiende que la política se hace con el corazón y los pies en el territorio. Mi prioridad es garantizar vida digna para todas las familias.</p>
-					</section>
-
-					<section id="proposals-natalia">
-						<header class="major">
-							<h2>Propuestas por el Cambio</h2>
-						</header>
-						<div class="row">
-							<div class="col-6 col-12-small">
-								<h3>Mujeres y Cuidado</h3>
-								<p>Reconocimiento económico al trabajo del hogar y redes de apoyo comunitario.</p>
-							</div>
-							<div class="col-6 col-12-small">
-								<h3>Territorios y Agua</h3>
-								<p>Protección del mínimo vital de agua y defensa de la soberanía alimentaria.</p>
-							</div>
-						</div>
-					</section>
-
-					<section id="volunteer-natalia">
-						<header class="major">
-							<h2>Participa en el Cambio</h2>
-						</header>
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Nombre" /></div>
-								<div class="field half"><input type="text" name="whatsapp" placeholder="WhatsApp" /></div>
-							</div>
-							<ul class="actions special">
-								<li><input type="submit" value="Unirme al Cambio" class="primary" /></li>
-							</ul>
-						</form>
-					</section>
-
-					<section id="news-section">
-						<header class="major">
-							<h2>Noticias y Agenda</h2>
-						</header>
-						<div class="posts">
-							<article>
-								<h2><a href="#">Recorrido por Soacha</a></h2>
-								<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-								<p>Construyendo propuestas desde la base en nuestro municipio.</p>
-							</article>
-							<article>
-								<h2><a href="#">Agenda Semanal</a></h2>
-								<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-								<p>Conoce los puntos de encuentro de esta semana.</p>
-							</article>
-						</div>
-					</section>
-
-				</div>
-
-				<footer id="footer">
-					<section class="split contact">
-						<section>
-							<h3>WhatsApp</h3>
-							<p><a href="https://wa.me/573000000000">+57 300 000 0000</a></p>
-						</section>
-						<section>
-							<h3>Redes Sociales</h3>
-							<ul class="icons alt">
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-							</ul>
-						</section>
-					</section>
-				</footer>
-
-				<div id="copyright">
-					<ul><li>&copy; Natalia Moreno</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-				</div>
-
 			</div>
 
-		    <script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<div id="main">
+				<section id="about-natalia">
+					<header class="major">
+						<h2>Sobre Mí</h2>
+					</header>
 
+					<p>Nací en Bogotá el 5 de abril de 1988 y crecí en Soacha desde los siete años, cuando mi mamá decidió buscar en este municipio la posibilidad de tener una casa propia y un proyecto de vida para nuestra familia. Soy hija de una mujer trabajadora que, como muchas en Cundinamarca, sostuvo el hogar a punta de esfuerzo y de sueños aplazados.</p>
+
+					<p>Fui mamá a los 15 años, estudiando noveno en el colegio General Santander, y desde entonces entendí que defender mis derechos no era una consigna, sino una necesidad. Cuando me dijeron que por estar embarazada no debía seguir en el colegio, decidí quedarme, terminar mi bachillerato, ser personera y caminar los pasillos con mi hijo en brazos o preguntando quién podía cuidarlo mientras yo cumplía con mis responsabilidades estudiantiles. Esa experiencia marcó mi forma de ver la política: como una lucha para que ninguna mujer tenga que escoger entre estudiar, criar o soñar.</p> 
+
+					<span id="dots"></span>
+					<span id="more-text" style="display: none;">
+						<p>Como muchas madres de a pie, hice una pausa en mis proyectos para trabajar y sacar adelante a mi hijo y, más adelante, a mis hijos, poniendo varios de mis sueños en “stand-by”. A los 26 años ingresé a la Universidad de Cundinamarca a estudiar Ingeniería Industrial y allí volví a encontrar el camino del liderazgo, esta vez desde la universidad pública. Junto con otros y otras estudiantes creamos el movimiento estudiantil de Soacha, porque no queríamos sumarnos a algo ya hecho, sino levantar una voz propia que dijera: aquí hay una universidad pública, aquí hay jóvenes que quieren estudiar y aquí hacen falta más programas, horarios nocturnos y una oferta que responda a la realidad del municipio.</p>
+
+						<p>La pandemia fue un punto de quiebre en mi historia. Mientras el país hablaba de confinamiento, en los barrios altos de Soacha la prioridad era conseguir el siguiente mercado y que los niños no se quedaran por fuera del colegio por no tener internet. Mi casa se convirtió en punto de acopio: siempre había mercados para organizar, manos para empacar y barrios por recorrer en la Loma Minuto de Dios y en la comuna 4, donde entendimos que la necesidad no era solo alimentaria, sino también educativa. Con otros compañeros y compañeras de distintas universidades empezamos a hacer refuerzos académicos, a hablar de educación popular y a trabajar para que niños y niñas reconocieran su territorio, sus derechos y su capacidad de organizarse.</p>
+
+						<p>El estallido social y los asesinatos de jóvenes como Mateo Aldana y Cristian Hurtado me confrontaron con otra realidad: cuando las familias golpean las puertas de las instituciones y nadie responde, la indiferencia también mata. Ver a sus madres exigir una explicación mínima y no obtener ni siquiera un diálogo digno me confirmó que necesitábamos llegar a los espacios de representación donde sí hay voz y voto. Por eso di el paso a la política institucional y llegué al Concejo de Soacha en una lista del Pacto Histórico, con la convicción de que la curul debía ser un altavoz de las periferias y no un asiento más en la burocracia.</p>
+						
+						<p>En el Concejo nos opusimos a la Región Metropolitana Bogotá–Cundinamarca tal como estaba planteada, porque no respondía a las necesidades reales de municipios como Soacha. Impulsé un proyecto de acuerdo para reconocer la labor de las proteccionistas y animalistas que, con sus propios recursos, rescatan, rehabilitan y entregan en adopción animales que deberían ser responsabilidad del Estado. Trabajé en el fortalecimiento de la Comisión de la Mujer y defendí, una y otra vez, la participación ciudadana efectiva en los debates, especialmente cuando se hablaba de servicios públicos, de los cobros excesivos de empresas y de la forma en que se liquida el servicio de aseo en los barrios de la comuna 4. </p>
+						
+						<p>Esa experiencia me dejó claro que muchas de las transformaciones que necesitamos no se pueden hacer solo desde el nivel municipal. Leyes como la 142 de servicios públicos no cambian con cabildos o veedurías locales, sino con decisiones en el Congreso. Lo mismo ocurre con el reconocimiento económico del trabajo de cuidado de las mujeres que atienden a personas con discapacidad, con la garantía de un mínimo vital de agua o con la necesidad de frenar la expansión urbana descontrolada que amenaza nuestras fuentes hídricas. Por eso hoy pongo mi nombre al servicio de Cundinamarca para llegar a la Cámara de Representantes: porque sé lo que se siente vivir las consecuencias de esas leyes desde abajo y quiero estar en el lugar donde se escriben.</p>
+
+						<p>Ser mamá atraviesa todo lo que soy y lo que hago. No es un adorno en mi biografía, es la experiencia que me enseñó a ver el mundo desde los ojos de las mujeres que madrugan, cuidan, trabajan, estudian cuando pueden y muchas veces cargan solas con la economía y la crianza. Desde ahí entiendo la política como cuidado del territorio, de la vida y de las personas, con la misma fuerza con la que defendemos a nuestros hijos. Creo en una política hecha con amor y ética, capaz de ser firme sin perder la ternura, y en la necesidad de que las mujeres de la clase trabajadora lleguemos a los espacios de poder con memoria de nuestras propias luchas.</p>
+
+						<p>Vengo de una familia de barrio, de una universidad pública poco conocida, de una comuna estigmatizada y de una maternidad temprana que muchos vieron como un fracaso. Para mí, todo eso es precisamente lo que me da autoridad para hablar de vida digna, de derechos y de esperanzas concretas. Durante años, las leyes se han escrito pensando en los de arriba y se han aplicado con todo el peso sobre “los de la ruana”. Hoy quiero ser parte de la generación que cambie esa historia y abra las puertas para que seamos los de a pie, las campesinas, los jóvenes de los barrios populares y las mujeres cuidadoras quienes escribamos las leyes de este país.</p>
+					</span>
+
+					<ul class="actions special">
+						<li><button onclick="toggleReadMore()" id="readMoreBtn" class="button small">Leer más</button></li>
+					</ul>
+				</section>
+			</div>
+
+				<section id="proposals-natalia">
+					<header class="major">
+						<h2>Lo que propongo</h2>
+					</header>
+					
+					<div class="row gtr-uniform">
+						<div class="col-6 col-12-small">
+							<div class="proposal-card">
+								<div>
+									<h3>Mujeres al frente del cambio y cuidadoras</h3>
+									<p>Garantizaremos la participación real y el liderazgo de las mujeres en todos los espacios de decisión. Nuestra prioridad es reconocer su labor y asegurar que sean las protagonistas del cambio social.</p>
+								</div>
+								<a href="docs/plan_mujeres.pdf" download class="btn-plan">Ver el plan completo</a>
+							</div>
+						</div>
+
+						<div class="col-6 col-12-small">
+							<div class="proposal-card">
+								<div>
+									<h3>El agua y el territorio no se negocian</h3>
+									<p>Asumimos la defensa firme del medio ambiente y de nuestros bienes comunes frente a cualquier interés. El territorio y sus recursos son la base de la vida y no están sujetos a negociación alguna.</p>
+								</div>
+								<a href="docs/plan_agua.pdf" download class="btn-plan">Ver el plan completo</a>
+							</div>
+						</div>
+
+						<div class="col-6 col-12-small">
+							<div class="proposal-card">
+								<div>
+									<h3>Ordenar el territorio para vivir con dignidad</h3>
+									<p>Apostamos por un desarrollo justo que dignifique tanto el campo como la ciudad, integrándolos de manera equilibrada. Nos oponemos a la gestión actual de la Región Metropolitana para priorizar el bienestar de los habitantes sobre los intereses administrativos.</p>
+								</div>
+								<a href="docs/plan_educacion.pdf" download class="btn-plan">Ver el plan completo</a>
+							</div>
+						</div>
+
+						<div class="col-6 col-12-small">
+							<div class="proposal-card">
+								<div>
+									<h3>La educación superior como derecho, no privilegio</h3>
+									<p>Trabajaremos para que las juventudes tengan acceso igualitario a la universidad, eliminando las barreras económicas. No basta con garantizar el derecho a la educación; implementaremos medidas reales para asegurar la permanencia de los estudiantes hasta su graduación.</p>
+								</div>
+								<a href="docs/plan_educacion.pdf" download class="btn-plan">Ver el plan completo</a>
+							</div>
+						</div>
+
+						<div class="col-6 col-12-small">
+							<div class="proposal-card">
+								<div>
+									<h3>Inclusión de personas con discapacidad</h3>
+									<p>Promoveremos políticas de equidad que vayan más allá del papel, implementando ajustes razonables en todas las instituciones. El objetivo es asegurar una inclusión efectiva y el pleno ejercicio de derechos para todas las personas.</p>
+								</div>
+								<a href="docs/plan_educacion.pdf" download class="btn-plan">Ver el plan completo</a>
+							</div>
+						</div>
+						
+						<div class="col-6 col-12-small">
+							<div class="proposal-card">
+								<div>
+									<h3>Conciliación con equidad</h3>
+									<p>Fomentaremos una sociedad con justicia social mediante mecanismos de resolución de conflictos basados en el diálogo y la justicia. Buscamos que la paz y la convivencia se construyan sobre una base de trato equitativo para todos.</p>
+								</div>
+								<a href="docs/plan_inclusion.pdf" download class="btn-plan">Ver el plan completo</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="hagamos-parche">
+				<div class="container">
+					<h2>HAGAMOS <span>PARCHE</span></h2>
+					<p>Tú y yo podemos parchar para llevar esta campaña al Congreso y hacer que el cambio sea una realidad.</p>
+					
+					<form class="parche-form">
+					<div class="form-group full-width">
+						<label>SELECCIONA TU PARCHE:</label>
+						<select>
+						<option>-- ¿Cómo quieres apoyar? --</option>
+						<option>Voluntariado</option>
+						<option>Redes Sociales</option>
+						<option>Logística</option>
+						</select>
+					</div>
+					
+					<div class="form-row">
+						<input type="text" placeholder="Tu Nombre">
+						<input type="text" placeholder="Tu WhatsApp">
+					</div>
+					
+					<button type="submit" class="btn-primary">¡QUIERO PARCHAR!</button>
+					</form>
+				</div>
+				</section>
+
+			<footer id="footer">
+				<section class="split contact">
+					<section>
+						<h3>Contacto</h3>
+						<p><a href="https://wa.me/573000000000">+57 300 000 0000</a></p>
+					</section>
+					<section>
+						<h3>Redes Sociales</h3>
+						<ul class="icons alt">
+							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<div id="copyright">
+				<ul><li>&copy; Natalia Moreno - Cámara por Cundinamarca</li></ul>
+			</div>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 	</body>
 </html>

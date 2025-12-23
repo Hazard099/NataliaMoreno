@@ -88,9 +88,10 @@
 			});
 		});
 
-		breakpoints.on('<=small', function() {
+		breakpoints.on('>small', function() {
 			$main.unscrollex().scrollex({
-				mode: 'middle', top: '15vh', bottom: '-15vh',
+				mode: 'top', 
+				top: '100vh', // Trigger when the top of #main hits the bottom of the screen
 				enter: function() { $intro.addClass('hidden'); },
 				leave: function() { $intro.removeClass('hidden'); }
 			});
@@ -126,4 +127,32 @@
 		});
 	}
 
+	// 5. Desktop Top Nav logic
+	if ($topNav.length > 0) {
+		$window.on('scroll', function() {
+			if ($window.scrollTop() > 50) {
+				$body.addClass('scrolled');
+				// This now only handles the background color change of the nav
+			} else {
+				$body.removeClass('scrolled');
+			}
+		});
+	}
+
 })(jQuery);
+
+function toggleReadMore() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more-text");
+    var btnText = document.getElementById("readMoreBtn");
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Leer más"; 
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Leer menos"; 
+        moreText.style.display = "inline";
+    }
+}
