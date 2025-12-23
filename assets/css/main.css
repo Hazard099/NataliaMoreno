@@ -2302,3 +2302,21 @@ select, input {
         height: auto;
     }
 }
+
+	/* ==========================================================================
+	VISIBILITY HELPERS
+	========================================================================== */
+	
+	/* --- Visibility Helpers --- */
+	.mobile-only { 
+		display: none !important; 
+	}
+
+	@media screen and (max-width: 736px) {
+		.mobile-only { 
+			display: block !important; 
+		}
+		.desktop-only { 
+			display: none !important; 
+		}
+	}
