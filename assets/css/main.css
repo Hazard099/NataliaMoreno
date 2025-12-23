@@ -2029,8 +2029,9 @@ section {
    ========================================================================== */
 
 #proposals-natalia {
-    background-color: #f1f2f6 !important; /* Soft light gray/blue background */
-    padding: 8rem 10% !important; /* Stretches the top and bottom of the section */
+    background-color: #f1f2f6 !important;
+    /* Changed bottom padding from 8rem to 2rem */
+    padding: 8rem 10% 2rem 10% !important; 
 }
 
 /* The Proposal "Box" or Card */
@@ -2152,7 +2153,7 @@ select, input {
    ========================================================================== */
 
 .hagamos-parche {
-    padding: 8rem 10% !important;
+    padding: 3rem 10% !important;
     text-align: center;
     background-color: #f1f2f6 !important; /* Mismo gris que propuestas */
 }
