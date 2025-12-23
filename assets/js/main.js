@@ -166,6 +166,27 @@
 		window.location.href = routes[value];
 	});
 
+	// Dynamic "Parchar" Button Toggle Logic
+	var $parcheBtn = $('.mobile-parche-btn');
+	var $volunteerSection = $('#volunteer-natalia');
+
+	if ($parcheBtn.length > 0 && $volunteerSection.length > 0) {
+		$window.on('scroll', function() {
+			// Calculate when the user is near the volunteer section
+			// We subtract 300px to trigger the change slightly before they hit the section
+			var volunteerPos = $volunteerSection.offset().top - 300;
+
+			if ($window.scrollTop() >= volunteerPos) {
+				// Change to "Back to Top" mode
+				$parcheBtn.text('VOLVER ARRIBA');
+				$parcheBtn.attr('href', '#intro');
+			} else {
+				// Reset to "Parchar" mode
+				$parcheBtn.text('¡PARCHAR!');
+				$parcheBtn.attr('href', '#volunteer-natalia');
+			}
+		});
+	}
 })(jQuery);
 
 function toggleReadMore() {
@@ -183,3 +204,4 @@ function toggleReadMore() {
 		moreText.style.display = "inline";
 	}
 }
+

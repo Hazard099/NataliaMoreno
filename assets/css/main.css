@@ -2329,3 +2329,66 @@ select, input {
 			display: none !important; 
 		}
 	}
+
+	@media screen and (max-width: 736px) {
+    /* ... existing mobile styles (menu, button, intro, etc.) ... */
+
+    /* Force proposals to show one per row (100% width) */
+    #proposals-natalia .row > div {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        margin-bottom: 2rem; /* Adds space between the stacked cards */
+    }
+
+    /* Adjust the inner card padding for mobile if needed */
+    .proposal-card {
+        padding: 2rem !important;
+    }
+}
+
+/* Add this inside the mobile media query in main.css */
+@media screen and (max-width: 736px) {
+    .whatsapp-nav-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        background-color: #25d366 !important; /* WhatsApp Green */
+        color: #ffffff !important;
+        padding: 0.8rem 1.5rem !important;
+        border-radius: 50px;
+        font-size: 1.1rem !important; /* Slightly smaller than main links but bolder */
+        font-weight: 900;
+        margin-top: 1rem;
+        border-bottom: none !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .whatsapp-nav-btn i {
+        margin-right: 10px;
+        font-size: 1.4rem;
+    }
+
+    /* Adjust overlay spacing to fit the new button */
+    #mobile-menu-overlay ul li {
+        margin: 1.2rem 0 !important; /* Slightly reduced margin to prevent scrolling */
+    }
+}
+
+/* Add this inside the mobile media query in main.css */
+@media screen and (max-width: 736px) {
+    /* ... existing styles ... */
+
+    /* Hide the white button when the menu is open */
+    #mobile-menu-toggle.open ~ .mobile-parche-btn {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        visibility: hidden !important;
+        transition: all 0.3s ease !important;
+    }
+
+    /* Ensure the button has a transition so it fades out smoothly */
+    .mobile-parche-btn {
+        transition: all 0.3s ease !important;
+    }
+}
