@@ -2425,3 +2425,46 @@ select, input {
         transition: all 0.3s ease !important;
     }
 }
+
+/* ==========================================================================
+   FEATURED STORY SIZING (Quién es Natalia Moreno)
+   ========================================================================== */
+
+/* 1. Shrink the overall section padding */
+#main > .post.featured {
+    padding: 4rem 15% 3rem 15% !important; /* Reduced from 8rem padding */
+}
+
+/* 2. Resize the main headline */
+#main > .post.featured header.major h2 {
+    font-size: 2.2rem !important; /* Reduced from 4rem */
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+/* 3. Scale down the featured image and center it */
+#main > .post.featured .image.main {
+    width: 70% !important; /* Reduced from 100% width */
+    margin: 2rem auto !important; /* Added auto to center and reduced margin */
+    max-width: 800px; /* Prevents it from getting too big on huge screens */
+}
+
+/* 4. Optional: Narrow the text for better readability */
+#main > .post.featured header.major p {
+    font-size: 0.95rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Matches the featured theme */
+}
+
+@media screen and (max-width: 736px) {
+    #main > .post.featured .image.main {
+        width: 100% !important; /* Returns to full width on mobile for impact */
+        margin: 1.5rem 0 !important;
+    }
+    
+    #main > .post.featured header.major h2 {
+        font-size: 1.8rem !important; /* Slightly smaller for mobile phones */
+    }
+}
