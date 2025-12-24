@@ -1281,6 +1281,7 @@ body.is-preload #intro {
 	flex-grow: 0;
 	width: 50%;
 	padding: 4rem;
+	padding-top: 0rem !important;
 }
 
 #main > .posts > article {
@@ -1289,6 +1290,10 @@ body.is-preload #intro {
 	border-style: solid;
 	border-top-width: 2px;
 	text-align: center;
+}
+
+#main > .posts {
+    padding-top: 0 !important;
 }
 
 #main > .posts > article > :last-child {
@@ -2373,6 +2378,34 @@ select, input {
     #mobile-menu-overlay ul li {
         margin: 1.2rem 0 !important; /* Slightly reduced margin to prevent scrolling */
     }
+	/* ================================
+   Social Media Embeds (IG + FB)
+   ================================ */
+
+.social-embed {
+  display: flex;
+  justify-content: center;
+}
+
+/* Force embeds to respect container width */
+.social-embed iframe,
+.social-embed blockquote {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Instagram override (important) */
+/* Remove IG internal offset */
+.instagram-media {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Optional: smooth edges */
+.social-embed iframe {
+  border-radius: 12px;
+}
+
 }
 
 /* Add this inside the mobile media query in main.css */
