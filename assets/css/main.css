@@ -110,9 +110,9 @@ html {
 }
 
 body, input, select, textarea {
-	font-family: "Merriweather", Georgia, serif;
-	font-weight: 300;
-	font-size: 1rem;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; 
+    font-weight: 400; /* Gill Sans usually looks better at weight 400 */
+    font-size: 1.15rem;
 	line-height: 2.375;
 	color: #212931;
 }
@@ -140,8 +140,9 @@ em, i {
 }
 
 p {
-	text-align: justify;
-	margin: 0 0 2rem 0;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    text-align: justify;
+    margin: 0 0 2rem 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1011,18 +1012,18 @@ table.alt tfoot {
 }
 
 #wrapper.fade-in:before {
-	pointer-events: none;
-	transition: opacity 1s ease-in-out;
-	transition-delay: 0.75s;
-	background: #1e252d;
-	content: '';
-	display: block;
-	height: 100%;
-	left: 0;
-	opacity: 0;
-	position: fixed;
-	top: 0;
-	width: 100%;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 0.75s;
+    background: #1e252d;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0; /* Ensure this is 0 */
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 body.is-preload #wrapper.fade-in:before {
@@ -1117,7 +1118,8 @@ body.scrolled #top-nav {
 
 /* Intro Section */
 #intro {
-	color: #ffffff;
+	background-color: #ffffff !important; /* Changed from Purple to White */
+    color: #3f016e !important;            /* Changed from White to Purple */
 	padding: 3.5rem 4rem 4rem 4rem;
 	display: flex;
 	flex-direction: column;
@@ -1136,7 +1138,7 @@ body.scrolled #top-nav {
 	font-size: 3rem;
 	line-height: 1;
 	text-align: left;
-	color: #ffffff;
+	color: #3f016e !important;
 }
 
 #intro p {
@@ -1144,6 +1146,7 @@ body.scrolled #top-nav {
 	font-style: italic;
 	margin-top: -0.25rem;
 	text-align: left;
+	color: #3f016e !important;
 }
 
 #intro a {
@@ -1224,7 +1227,7 @@ body.is-preload #intro {
 
 /* Main Content */
 #main {
-	background-color: #ffffff;
+	background-color: #3f016e !important;;
 	position: relative;
 	margin: 0 auto;
 	width: 100%;
@@ -1309,17 +1312,10 @@ body.is-preload #intro {
 }
 
 /* Section Backgrounds */
-#about-natalia {
-	background-color: #ffffff;
-}
+#about-natalia { background-color: #3f016e !important; }
+#proposals-natalia { background-color: #36015d !important; } /* Slightly darker purple for contrast */
+#volunteer-natalia { background-color: #3f016e !important; }
 
-#proposals-natalia {
-	background-color: #f4f4f4;
-}
-
-#volunteer-natalia {
-	background-color: #ffffff;
-}
 
 #news {
 	background-color: #f9f9f9;
@@ -1640,26 +1636,17 @@ section {
     }
 	
 	#mobile-menu-toggle span {
-		display: block;
-		height: 2px; /* Grosor reducido de 4px a 2px */
-		width: 100%;
-		background-color: #ffffff;
-		border-radius: 1px; /* Ajustado proporcionalmente */
-		transition: all 0.3s ease;
-	}
+        display: block !important;
+        height: 2px !important;
+        width: 100% !important;
+        background-color: #000000 !important; /* Changed from #ffffff to black */
+        border-radius: 1px;
+        transition: all 0.3s ease;
+    }
 
-	/* Ajuste de la animación para las líneas más delgadas */
-	#mobile-menu-toggle.open span:nth-child(1) {
-		transform: translateY(11px) rotate(45deg); /* Ajustado para centrar mejor */
-	}
-
-	#mobile-menu-toggle.open span:nth-child(2) {
-		opacity: 0;
-	}
-	
-	#mobile-menu-toggle.open span:nth-child(3) {
-		transform: translateY(-12px) rotate(-45deg); /* Ajustado para centrar mejor */
-	}
+	#mobile-menu-toggle.open span {
+			background-color: #ffffff !important;
+		}
 	
 	#mobile-menu-overlay {
 		position: fixed;
@@ -2467,4 +2454,140 @@ select, input {
     #main > .post.featured header.major h2 {
         font-size: 1.8rem !important; /* Slightly smaller for mobile phones */
     }
+}
+
+@media screen and (max-width: 736px) {
+    #wrapper.fade-in:before {
+        display: none !important; /* Completely remove the splash layer on mobile */
+    }
+    
+    body.is-preload #wrapper.fade-in:before {
+        opacity: 0 !important;
+    }
+}
+
+/* Change main background and global text color */
+body, #main {
+    background-color: #3f016e;
+    color: #ffffff;
+}
+
+/* Invert Headings */
+h1, h2, h3, h4, h5, h6, strong {
+    color: #ffffff;
+}
+
+/* Fix About Section Text */
+#about-natalia p {
+    color: #ffffff;
+}
+
+/* Desktop Nav: White background with Purple text */
+#top-nav {
+    background-color: #ffffff;
+}
+
+.nav-left a {
+    color: #3f016e;
+}
+
+/* Button: Purple background with White text */
+.donate-btn {
+    background-color: #3f016e;
+    color: #ffffff;
+}
+
+.proposal-card {
+    background: #ffffff; /* Keep cards white so they pop against the purple */
+    color: #3f016e;
+}
+
+.proposal-card p {
+    color: #3f016e;
+}
+
+.proposal-card h3 {
+    color: #3f016e;
+    border-bottom: 2px solid #18bfef; /* Keep the cyan accent */
+}
+
+.parche-card {
+    background: #ffffff; /* Card remains white for readability */
+    color: #3f016e;
+}
+
+.parche-form .form-group label {
+    color: #3f016e;
+}
+
+.btn-primary {
+    background-color: #3f016e !important; /* Purple button on white card */
+    color: #ffffff !important;
+}
+
+
+/* Target only the H2 inside the Proposals section header */
+#proposals-natalia header.major h2 {
+    color: #3f016e !important;
+}
+
+/* 1. Target the "Leer más" button specifically by its ID */
+#readMoreBtn {
+    background-color: #ffffff !important;
+    color: #3f016e !important; /* Campaign Purple text */
+    box-shadow: inset 0 0 0 2px #3f016e !important; /* Purple border */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif !important;
+}
+
+#readMoreBtn:hover {
+    background-color: #3f016e !important;
+    color: #ffffff !important; /* Inverts on hover */
+}
+
+/* 2. Target the "Historia Completa" button in the featured post section */
+.post.featured .button.large {
+    background-color: #ffffff !important;
+    color: #3f016e !important;
+    box-shadow: inset 0 0 0 2px #3f016e !important;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif !important;
+}
+
+.post.featured .button.large:hover {
+    background-color: #3f016e !important;
+    color: #ffffff !important;
+}
+
+/* 1. Set the section background to pure white */
+#volunteer-natalia, 
+.hagamos-parche {
+    background-color: #ffffff !important;
+    padding: 3rem 10% !important;
+    text-align: center;
+}
+
+/* 2. Ensure the title remains visible (Black or Purple) */
+.hagamos-parche h2 {
+    color: #212931; /* Black */
+    font-weight: 900;
+}
+
+/* 3. Keep the subtitle readable on white */
+.centered-subtitle {
+    text-align: center !important;
+    margin: 0 auto 3rem auto !important;
+    max-width: 700px;
+    font-style: italic;
+    color: #717981; /* Standard gray */
+}
+
+/* 4. Ensure the card (form container) stands out against the white background */
+.parche-card {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    /* Increased shadow slightly to define the card against the white section */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); 
+    max-width: 700px;
+    margin: 0 auto;
+    border: 1px solid #eeeeee; /* Subtle border for definition */
 }

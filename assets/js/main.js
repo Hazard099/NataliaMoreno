@@ -182,7 +182,7 @@
 				$parcheBtn.attr('href', '#intro');
 			} else {
 				// Reset to "Parchar" mode
-				$parcheBtn.text('¡PARCHAR!');
+				$parcheBtn.text('¡Voluntariado!');
 				$parcheBtn.attr('href', '#volunteer-natalia');
 			}
 		});
