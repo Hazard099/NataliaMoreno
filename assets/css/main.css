@@ -1177,6 +1177,22 @@ header.major > .date:after { right: 0; }
     .floating-logo { display: none !important; }
     #wrapper.fade-in:before { display: none !important; }
     body.is-preload #wrapper.fade-in:before { opacity: 0 !important; }
+	
+	body {
+        background-color: #ffffff !important;
+    }
+
+	body.is-preload #wrapper {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+    }
+
+	body.is-preload #wrapper:before,
+    #wrapper.fade-in:before {
+        display: none !important;
+        content: none !important;
+    }
 
     /* Mobile Menu Toggle (Hamburger) */
     #mobile-menu-toggle {
@@ -1354,6 +1370,7 @@ header.major > .date:after { right: 0; }
     #footer > section.split > section:last-child { padding: 2rem 2rem 0.1rem 2rem; }
     #copyright ul li { border-left: 0; margin: 1rem 0 0 0; padding-left: 0; display: block; }
     #copyright ul li:first-child { margin-top: 0; }
+	.mobile-only { display: block !important; }
 }
 
 /* Max-Width: 480px */
