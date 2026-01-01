@@ -27,7 +27,7 @@
 	$window.on('load', function() {
 		window.setTimeout(function() {
 			$body.removeClass('is-preload');
-		}, 100);
+		}, 40);
 	});
 
 	// 3. Scrolly & Parallax
@@ -148,23 +148,26 @@
 
 
 	$(".parche-form").on("submit", function (e) {
-		e.preventDefault();
-		const value = $(this).find("select").val();
+    e.preventDefault();
 
-		const routes = {
-			calle: "https://docs.google.com/forms/d/e/1FAIpQLSe6EfhHE6Hpfs-m6E5bIifOuciUlWy2TRvHobbyXDqRNePAOg/viewform?usp=dialog",
-			voto: "https://docs.google.com/forms/d/e/1FAIpQLSdFG-pZsmX1rhW-S2cXzcwYWGI8V5gmFPe-dS88swi8_InWJg/viewform?usp=dialog",
-			cultura: "https://docs.google.com/forms/d/e/1FAIpQLSflJuXUlEjAVFAckwg1W7Cxl2mY12ylAbkiPBs_c61Wyr_amg/viewform?usp=dialog",
-			comunicacion: "https://docs.google.com/forms/d/e/1FAIpQLSdpaALZ1tWVGwwkkxpQN2xa2Dic3EdlTTs9qYZ2puXcuHxDZQ/viewform?usp=dialog"
-		};
+    // get selected text instead of value
+    const text = $(this).find("select option:selected").text().trim();
 
-		if (!routes[value]) {
-			alert("Por favor selecciona un parche");
-			return;
-		}
+    const routes = {
+        "Transporte y logística": "https://docs.google.com/forms/d/e/1FAIpQLSe6EfhHE6Hpfs-m6E5bIifOuciUlWy2TRvHobbyXDqRNePAOg/viewform?usp=dialog",
+        "Eventos de campaña y reparto de publicidad": "https://docs.google.com/forms/d/e/1FAIpQLSdFG-pZsmX1rhW-S2cXzcwYWGI8V5gmFPe-dS88swi8_InWJg/viewform?usp=dialog",
+        "Programa y propuestas": "https://docs.google.com/forms/d/e/1FAIpQLSflJuXUlEjAVFAckwg1W7Cxl2mY12ylAbkiPBs_c61Wyr_amg/viewform?usp=dialog",
+        "Comunicación": "https://docs.google.com/forms/d/e/1FAIpQLSdpaALZ1tWVGwwkkxpQN2xa2Dic3EdlTTs9qYZ2puXcuHxDZQ/viewform?usp=dialog",
+        "Cuidado del voto": "https://docs.google.com/forms/d/e/1FAIpQLSde1e4MI7VZnYbtjyPXOUC-KA_jHtRA7bUXglxh-NIvf6ZT_A/viewform?usp=dialog"
+    };
 
-		window.location.href = routes[value];
-	});
+    if (!routes[text]) {
+        alert("Por favor selecciona un parche");
+        return;
+    }
+
+    window.location.href = routes[text];
+});
 
 	// Dynamic "Parchar" Button Toggle Logic
 	var $parcheBtn = $('.mobile-parche-btn');

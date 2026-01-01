@@ -426,7 +426,7 @@ body.is-preload #wrapper.fade-in:before {
     font-weight: 900;
     letter-spacing: 0.075em;
     line-height: 1.5;
-    text-align: center;
+    text-align: center !important;
     text-transform: uppercase;
     margin: 4rem auto 8rem auto;
     width: calc(100% - 4rem);
@@ -524,7 +524,7 @@ button,
 
 /* Campaign Buttons */
 .donate-btn {
-    background-color: #3f016e; /* Purple */
+    background-color: #ffffff; /* Purple */
     color: #ffffff; /* White text */
     padding: 0.5rem 1.5rem;
     border: none;
@@ -982,6 +982,10 @@ body.scrolled #top-nav { background-color: #3f016e; box-shadow: 0 2px 10px rgba(
     transition: color 0.2s ease;
     border-bottom: none;
 }
+body.scrolled #top-nav .nav-left a {
+    color: #ffffff !important;
+}
+
 .nav-left a:hover { color: #18bfef; }
 .nav-center { display: flex; justify-content: center; align-items: center; flex: 1; }
 .nav-logo-image { width: 125px; height: auto; display: block; }
@@ -1392,3 +1396,51 @@ header.major > .date:after { right: 0; }
 @media screen and (min-width: 737px) {
     #mobile-menu-toggle { display: none; }
 }
+
+
+.bg.fixed {
+    background: none !important;
+    background-color: #ffffff !important;
+    background-image: none !important;
+}
+
+/* keep current spacing ABOVE copyright, remove ALL space below it */
+#copyright {
+    margin-top: 0 !important;          /* keep how it looks now */
+    padding-top: 0.5rem !important;    /* keep how it looks now */
+    
+    /* ↓↓↓ remove bottom whitespace only ↓↓↓ */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* absolutely kill any extra space under copyright */
+/* make sure copyright text is visible */
+#copyright {
+    color: #000 !important;             /* black text */
+    font-size: 0.9rem;
+    text-align: center;
+
+    margin-top: 0.5rem !important;      /* keep visible spacing */
+    padding-top: 0.5rem !important;
+
+    /* remove space BELOW only */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+
+    overflow: visible !important;       /* prevents clipping */
+    height: auto !important;
+}
+
+/* DO NOT hide copyright anymore */
+#copyright::after,
+#copyright::before {
+    content: none !important;
+}
+
+/* remove whitespace at very bottom of page */
+html, body {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
