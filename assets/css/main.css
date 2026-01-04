@@ -491,19 +491,24 @@ button,
 /* Intro Button Overrides */
 #intro .button {
     background-color: transparent;
-    box-shadow: inset 0 0 0 2px #ffffff;
-    color: #ffffff !important;
+    box-shadow: inset 0 0 0 2px #3f016e; /* Purple Border */
+    color: #3f016e !important;           /* Purple Text */
 }
 #intro .button:hover {
-    box-shadow: inset 0 0 0 2px #18bfef;
-    color: #18bfef !important;
+    background-color: #3f016e;           /* Purple Background on Hover */
+    box-shadow: inset 0 0 0 2px #3f016e;
+    color: #ffffff !important;           /* White Text on Hover */
 }
 #intro .button.primary {
-    background-color: #ffffff;
+    background-color: #25d366;           /* WhatsApp Green Background */
     box-shadow: none;
-    color: #1e252d !important;
+    color: #ffffff !important;           /* White Text */
+    border: none;
 }
-#intro .button.primary:hover { background-color: #18bfef; }
+#intro .button.primary:hover {
+    background-color: #128c7e;           /* Darker Green on Hover */
+    color: #ffffff !important;
+}
 
 /* Footer Button Overrides */
 #footer .button {
@@ -1033,12 +1038,12 @@ body.scrolled #top-nav .nav-left a {
 #intro {
     background-color: #ffffff !important;
     color: #3f016e !important;
-    padding: 3.5rem 4rem 4rem 4rem;
+    padding: 0 2rem;               /* Reduced top/bottom padding to let flexbox center it */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
+    min-height: 100vh;             /* CHANGED: Forces full screen height */
     transition: opacity 1s ease, transform 1s ease;
     position: relative;
     cursor: default;
@@ -1046,6 +1051,7 @@ body.scrolled #top-nav .nav-left a {
     z-index: 1;
     margin-top: 0;
 }
+
 #intro h1 { font-size: 3rem; line-height: 1; text-align: left; color: #3f016e !important; }
 #intro p { font-size: 0.80rem; font-style: italic; margin-top: -0.25rem; text-align: left; color: #3f016e !important; }
 #intro a { color: #ffffff; border-bottom-color: rgba(255, 255, 255, 0.5); }
@@ -1441,6 +1447,31 @@ header.major > .date:after { right: 0; }
 /* remove whitespace at very bottom of page */
 html, body {
     margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+    padding-bottom: 1rem !important;
 }
 
+/* Ensure Mobile Overlay is hidden on Desktop */
+#mobile-menu-overlay {
+    display: none;
+}
+
+.social-embed {
+    display: flex;
+    justify-content: center;
+    /* Reduce padding slightly for embeds so they have more width */
+    padding: 2rem !important; 
+}
+
+.social-embed iframe, 
+.social-embed blockquote {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.social-embed iframe {
+    border-radius: 12px;
+    /* Key fix: Force the height to scale with the width */
+    height: auto !important;
+    aspect-ratio: 9/16;       /* Standard vertical video ratio */
+    min-height: 500px;        /* Safety minimum height */
+}
