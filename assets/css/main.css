@@ -974,7 +974,6 @@ a.image:hover img { transform: scale(1.05); }
     z-index: 1000;
     transition: background-color 0.5s ease;
 }
-body.scrolled #top-nav { background-color: #3f016e; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
 .nav-left { display: flex; align-items: center; gap: 1.5rem; margin-left: 2rem; flex: 1; }
 .nav-left a {
     color: #3f016e;
@@ -993,7 +992,7 @@ body.scrolled #top-nav .nav-left a {
 
 .nav-left a:hover { color: #18bfef; }
 .nav-center { display: flex; justify-content: center; align-items: center; flex: 1; }
-.nav-logo-image { width: 125px; height: auto; display: block; }
+.nav-logo-image { width: 250px; height: auto; display: block; }
 .nav-right { display: flex; align-items: center; justify-content: flex-end; margin-right: 2rem; flex: 1; }
 
 /* Dropdowns */
@@ -1052,7 +1051,24 @@ body.scrolled #top-nav .nav-left a {
     margin-top: 0;
 }
 
-#intro h1 { font-size: 3rem; line-height: 1; text-align: left; color: #3f016e !important; }
+#intro h1 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif; /* Keep original font */
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #3f016e !important; /* Ensure it stays purple */
+    text-transform: uppercase;
+}
+
+/* Specific style for the subheading */
+#intro h1 .sub-heading-text {
+    display: block;             /* Moves it to a new line */
+    font-size: 1.6rem;          /* Smaller as requested */
+    font-weight: 900;           /* Keeps the heavy weight of the original font */
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
 #intro p { font-size: 0.80rem; font-style: italic; margin-top: -0.25rem; text-align: left; color: #3f016e !important; }
 #intro a { color: #ffffff; border-bottom-color: rgba(255, 255, 255, 0.5); }
 #intro a:hover { border-bottom-color: transparent; color: #18bfef !important; }
@@ -1065,10 +1081,27 @@ body.scrolled #top-nav .nav-left a {
 }
 body.is-preload #intro { transform: translateY(2rem); opacity: 0; }
 
-.split-hero { display: flex; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto; gap: 2rem; }
-.hero-content { flex: 1; text-align: left; }
-.hero-image { flex: 1; }
-.hero-image img { max-width: 100%; height: auto; display: block; }
+.split-hero { 
+    display: flex; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 1400px; /* Increased from 1200px to give it more room to move */
+    margin: 0;         /* Changed from '0 auto' to '0' to align the container left */
+    gap: 0rem; 
+}
+.hero-content { flex: 0.8; text-align: left; }
+.hero-image { 
+    flex: 1.2; 
+    margin-left: -5rem; /* Shifting the container to the left */
+    position: relative;
+    z-index: 1;
+}
+.hero-image img { 
+    max-width: 100%;    /* Slightly larger to help with the shift */
+    height: auto; 
+    display: block; 
+    margin-left: 4rem; /* Shifting the actual image within the container */
+}
 
 /* --- Section Backgrounds --- */
 section.special, article.special { text-align: center; }
@@ -1314,7 +1347,14 @@ header.major > .date:after { right: 0; }
         min-height: 100vh !important; 
         padding: 3rem 1rem 2rem 1rem !important; 
     }
-    #intro h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; }
+    @media screen and (max-width: 736px) {
+        #intro h1.main-heading {
+            font-size: 2.5rem;
+        }
+        #intro h1.main-heading .sub-heading {
+            font-size: 1.2rem;
+        }
+    }
     #intro p { font-size: 1rem; margin-top: 0rem; }
     #intro .actions { display: none; }
     #intro .button { font-size: 0.8rem !important; display: block; width: 100%; }
@@ -1474,4 +1514,40 @@ html, body {
     height: auto !important;
     aspect-ratio: 9/16;       /* Standard vertical video ratio */
     min-height: 500px;        /* Safety minimum height */
+}
+
+@media screen and (max-width: 736px) {
+    /* Slightly adjust volunteer button position for the smaller icon */
+    .mobile-parche-btn.mobile-only {
+        right: 75px !important; 
+        padding: 0 1rem !important;
+    }
+
+    /* Smaller WhatsApp button with purple outline */
+    .mobile-whatsapp-float {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 10001;
+        background-color: #ffffff !important; /* Matches volunteer button background */
+        color: #25d366 !important;            /* Keeps WhatsApp icon green */
+        width: 2.5rem;                         /* Matches height of volunteer btn (approx 40px) */
+        height: 2.5rem;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        
+        /* The Purple Outline */
+        border: 2px solid #3f016e !important; 
+    }
+
+    /* Optional: Hover state to match campaign style */
+    .mobile-whatsapp-float:active {
+        background-color: #3f016e !important;
+        color: #ffffff !important;
+    }
 }

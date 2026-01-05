@@ -97,17 +97,6 @@
 		});
 	}
 
-	// 5. Desktop Top Nav & Logo Scroll Effect
-	if ($topNav.length > 0) {
-		$window.on('scroll', function() {
-			if ($window.scrollTop() > 100) {
-				$body.addClass('scrolled');
-			} else {
-				$body.removeClass('scrolled');
-			}
-		});
-	}
-
 	// 6. Custom Mobile Splash Menu
 	if ($menuToggle.length > 0) {
 		$menuToggle.on('click', function() {
@@ -120,17 +109,6 @@
 			$menuToggle.removeClass('open');
 			$menuOverlay.removeClass('active');
 			$body.css('overflow', 'auto');
-		});
-	}
-
-	// 7. Desktop Top Nav logic
-	if ($topNav.length > 0) {
-		$window.on('scroll', function() {
-			if ($window.scrollTop() > 50) {
-				$body.addClass('scrolled');
-			} else {
-				$body.removeClass('scrolled');
-			}
 		});
 	}
 
@@ -171,22 +149,22 @@
 
 	// Dynamic "Parchar" Button Toggle Logic
 	var $parcheBtn = $('.mobile-parche-btn');
+	var $whatsappBtn = $('.mobile-whatsapp-float'); // Add this
 	var $volunteerSection = $('#volunteer-natalia');
 
 	if ($parcheBtn.length > 0 && $volunteerSection.length > 0) {
 		$window.on('scroll', function() {
-			// Calculate when the user is near the volunteer section
-			// We subtract 300px to trigger the change slightly before they hit the section
 			var volunteerPos = $volunteerSection.offset().top - 300;
 
 			if ($window.scrollTop() >= volunteerPos) {
-				// Change to "Back to Top" mode
 				$parcheBtn.text('VOLVER ARRIBA');
 				$parcheBtn.attr('href', '#intro');
+				// Optional: Hide WhatsApp button at the bottom if you prefer
+				$whatsappBtn.css('opacity', '0.5'); 
 			} else {
-				// Reset to "Parchar" mode
 				$parcheBtn.text('¡Voluntariado!');
 				$parcheBtn.attr('href', '#volunteer-natalia');
+				$whatsappBtn.css('opacity', '1');
 			}
 		});
 	}
