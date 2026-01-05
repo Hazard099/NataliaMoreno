@@ -1517,13 +1517,12 @@ html, body {
 }
 
 @media screen and (max-width: 736px) {
-    /* Slightly adjust volunteer button position for the smaller icon */
+    /* --- 1. Top Right Buttons (Volunteer + WhatsApp) --- */
     .mobile-parche-btn.mobile-only {
         right: 75px !important; 
         padding: 0 1rem !important;
     }
 
-    /* Smaller WhatsApp button with purple outline */
     .mobile-whatsapp-float {
         display: flex !important;
         align-items: center;
@@ -1532,22 +1531,61 @@ html, body {
         top: 25px;
         right: 25px;
         z-index: 10001;
-        background-color: #ffffff !important; /* Matches volunteer button background */
-        color: #25d366 !important;            /* Keeps WhatsApp icon green */
-        width: 2.5rem;                         /* Matches height of volunteer btn (approx 40px) */
+        background-color: #ffffff !important; 
+        color: #25d366 !important;            
+        width: 2.5rem;                         
         height: 2.5rem;
         border-radius: 50%;
         font-size: 1.2rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         transition: all 0.3s ease;
-        
-        /* The Purple Outline */
         border: 2px solid #3f016e !important; 
     }
 
-    /* Optional: Hover state to match campaign style */
     .mobile-whatsapp-float:active {
         background-color: #3f016e !important;
         color: #ffffff !important;
+    }
+
+    /* --- 2. Intro Section Container --- */
+    #intro { 
+        height: auto !important; 
+        min-height: 100vh !important; 
+        padding: 3rem 1.5rem 2rem 1.5rem !important; /* Balanced side padding from last block */
+    }
+
+    /* --- 3. Hero Layout (Content & Images) --- */
+    .split-hero { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 1rem !important; 
+    }
+
+    .hero-content { 
+        flex: 1; 
+        width: 100% !important;
+        text-align: left; /* Restores left alignment */
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .hero-image { 
+        width: 150% !important;     
+        margin-left: 2rem !important;   /* Shift from last block */
+        margin-right: 0 !important;
+        margin-bottom: 1rem !important; 
+        margin-top: 0rem !important; 
+    }
+
+    .hero-image img { 
+        width: 100% !important;      
+        transform: scale(1) !important; /* Reset zoom */
+        margin-left: 0 !important;   
+        margin-top: 0 !important;
+    }
+
+    /* --- 4. Text Adjustments --- */
+    #intro h1 .sub-heading-text {
+        font-size: 1.2rem !important;
     }
 }
