@@ -932,7 +932,7 @@ a.image:hover img { transform: scale(1.05); }
     color: #3f016e;
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #18bfef;
+    border-bottom: 2px solid #FEAE33;
     display: inline-block;
     padding-bottom: 5px;
 }
@@ -1067,6 +1067,7 @@ body.scrolled #top-nav .nav-left a {
     font-weight: 900;           /* Keeps the heavy weight of the original font */
     letter-spacing: 0.05em;
     margin-top: 0.25rem;
+    color: #FEAE33 !important;
 }
 
 #intro p { font-size: 0.80rem; font-style: italic; margin-top: -0.25rem; text-align: left; color: #3f016e !important; }
@@ -1100,7 +1101,7 @@ body.is-preload #intro { transform: translateY(2rem); opacity: 0; }
     max-width: 100%;    /* Slightly larger to help with the shift */
     height: auto; 
     display: block; 
-    margin-left: 4rem; /* Shifting the actual image within the container */
+    margin-left: 0rem; /* Shifting the actual image within the container */
 }
 
 /* --- Section Backgrounds --- */
@@ -1567,14 +1568,15 @@ html, body {
         text-align: left; /* Restores left alignment */
         padding: 0 !important;
         margin: 0 !important;
+        margin-top: -3rem !important; 
     }
 
     .hero-image { 
-        width: 150% !important;     
-        margin-left: 2rem !important;   /* Shift from last block */
+        width: 125% !important;     
+        margin-left: 0rem !important;   /* Shift from last block */
         margin-right: 0 !important;
-        margin-bottom: 1rem !important; 
-        margin-top: 0rem !important; 
+        margin-bottom: 0rem !important; 
+        margin-top: -3rem !important; 
     }
 
     .hero-image img { 
@@ -1587,5 +1589,88 @@ html, body {
     /* --- 4. Text Adjustments --- */
     #intro h1 .sub-heading-text {
         font-size: 1.2rem !important;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    
+    /* --- 1. Maximize Screen Width (Reduce Padding) --- */
+    #intro { 
+        padding: 4rem 1rem 2rem 1rem !important; /* Reduced side padding to 1rem */
+        text-align: center !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+
+    /* --- 2. Make the Image Fill the Width --- */
+    .hero-image { 
+        width: 100% !important;     
+        margin: 0 !important;       /* Remove margins */
+        margin-bottom: 1rem !important; 
+    }
+
+    .hero-image img { 
+        width: 115% !important;      /* Zoom in slightly to cut off whitespace edges */
+        margin-left: -7.5% !important; /* Center the zoomed image */
+        transform: scale(1) !important;
+        max-width: none !important;  /* Allow it to overflow the container slightly if needed */
+    }
+
+    /* --- 3. Make Typography Bigger & Bolder --- */
+    #intro h1 {
+        font-size: 3rem !important;      /* INCREASED from 2.2rem */
+        line-height: 1 !important;
+        margin-bottom: 0.5rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .sub-heading-text {
+        display: block;
+        font-size: 1.3rem !important;    /* INCREASED from 1rem */
+        letter-spacing: 0.05em;
+        margin-top: 0.5rem;
+        font-weight: 600;                /* Made bolder */
+    }
+
+    /* --- 4. Make Body Text Wider and Readable --- */
+    .hero-content { 
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 !important;
+    }
+
+    #intro p {
+        font-style: normal !important;
+        text-align: center !important;
+        font-size: 1.15rem !important;   /* INCREASED size */
+        line-height: 1.3 !important;     /* Tighter line height for impact */
+        color: #3f016e !important;
+        margin-top: 1rem !important;
+        font-weight: 500 !important;
+    }
+
+    /* --- 5. Button Adjustments (Top Right) --- */
+    .mobile-parche-btn.mobile-only {
+        right: 75px !important; 
+        padding: 0 1rem !important;
+    }
+
+    .mobile-whatsapp-float {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 10001;
+        background-color: #ffffff !important; 
+        color: #25d366 !important;            
+        width: 2.5rem;                         
+        height: 2.5rem;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: all 0.3s ease;
+        border: 2px solid #3f016e !important; 
     }
 }
