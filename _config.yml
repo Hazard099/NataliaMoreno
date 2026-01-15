@@ -1,2 +1,3 @@
+url: "https://nataliamoreno.co" # REPLACE this with your actual domain
 plugins:
   - jekyll-sitemap
