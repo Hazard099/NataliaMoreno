@@ -112,44 +112,45 @@
 		});
 	}
 
-	// 8. Parche selection + redirect logic (ADD HERE)
+	// 8. Parche selection + redirect logic
 	let selectedParcheUrl = null;
 
 	$(".parche-option").on("click", function (e) {
-  	e.preventDefault();
-  	e.stopPropagation();
+  		e.preventDefault();
+  		e.stopPropagation();
 
-  	const url = $(this).data("url");
-  	window.location.href = url;
+  		const url = $(this).data("url");
+  		
+		// Updated to open in new tab
+  		window.open(url, '_blank');
 	});
 
-
-
 	$(".parche-form").on("submit", function (e) {
-    e.preventDefault();
+    	e.preventDefault();
 
-    // get selected text instead of value
-    const text = $(this).find("select option:selected").text().trim();
+    	// get selected text instead of value
+    	const text = $(this).find("select option:selected").text().trim();
 
-    const routes = {
-        "Transporte y logística": "https://docs.google.com/forms/d/e/1FAIpQLSe6EfhHE6Hpfs-m6E5bIifOuciUlWy2TRvHobbyXDqRNePAOg/viewform?usp=dialog",
-        "Eventos de campaña y reparto de publicidad": "https://docs.google.com/forms/d/e/1FAIpQLSdFG-pZsmX1rhW-S2cXzcwYWGI8V5gmFPe-dS88swi8_InWJg/viewform?usp=dialog",
-        "Programa y propuestas": "https://docs.google.com/forms/d/e/1FAIpQLSflJuXUlEjAVFAckwg1W7Cxl2mY12ylAbkiPBs_c61Wyr_amg/viewform?usp=dialog",
-        "Comunicación": "https://docs.google.com/forms/d/e/1FAIpQLSdpaALZ1tWVGwwkkxpQN2xa2Dic3EdlTTs9qYZ2puXcuHxDZQ/viewform?usp=dialog",
-        "Cuidado del voto": "https://docs.google.com/forms/d/e/1FAIpQLSde1e4MI7VZnYbtjyPXOUC-KA_jHtRA7bUXglxh-NIvf6ZT_A/viewform?usp=dialog"
-    };
+    	const routes = {
+        	"Transporte y logística": "https://docs.google.com/forms/d/e/1FAIpQLSe6EfhHE6Hpfs-m6E5bIifOuciUlWy2TRvHobbyXDqRNePAOg/viewform?usp=dialog",
+        	"Eventos de campaña y reparto de publicidad": "https://docs.google.com/forms/d/e/1FAIpQLSdFG-pZsmX1rhW-S2cXzcwYWGI8V5gmFPe-dS88swi8_InWJg/viewform?usp=dialog",
+        	"Programa y propuestas": "https://docs.google.com/forms/d/e/1FAIpQLSflJuXUlEjAVFAckwg1W7Cxl2mY12ylAbkiPBs_c61Wyr_amg/viewform?usp=dialog",
+        	"Comunicación": "https://docs.google.com/forms/d/e/1FAIpQLSdpaALZ1tWVGwwkkxpQN2xa2Dic3EdlTTs9qYZ2puXcuHxDZQ/viewform?usp=dialog",
+        	"Cuidado del voto": "https://docs.google.com/forms/d/e/1FAIpQLSde1e4MI7VZnYbtjyPXOUC-KA_jHtRA7bUXglxh-NIvf6ZT_A/viewform?usp=dialog"
+    	};
 
-    if (!routes[text]) {
-        alert("Por favor selecciona un parche");
-        return;
-    }
+    	if (!routes[text]) {
+        	alert("Por favor selecciona un parche");
+        	return;
+    	}
 
-    window.location.href = routes[text];
-});
+		// Updated to open in new tab
+    	window.open(routes[text], '_blank');
+	});
 
 	// Dynamic "Parchar" Button Toggle Logic
 	var $parcheBtn = $('.mobile-parche-btn');
-	var $whatsappBtn = $('.mobile-whatsapp-float'); // Add this
+	var $whatsappBtn = $('.mobile-whatsapp-float'); 
 	var $volunteerSection = $('#volunteer-natalia');
 
 	if ($parcheBtn.length > 0 && $volunteerSection.length > 0) {
@@ -185,4 +186,3 @@ function toggleReadMore() {
 		moreText.style.display = "inline";
 	}
 }
-
