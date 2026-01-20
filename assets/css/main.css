@@ -1597,7 +1597,7 @@ html, body {
     }
 }
 
-@media screen and (max-width: 1680px) {
+@media screen and (max-width: 736px) {
     
     /* --- 1. Maximize Screen Width (Reduce Padding) --- */
     #intro { 
@@ -1678,7 +1678,8 @@ html, body {
         transition: all 0.3s ease;
         border: 2px solid #3f016e !important; 
     }
-   /* =========================
+}
+ /* =========================
    VIDEO MODAL - BULLETPROOF
 ========================= */
 #videoModal {
@@ -1747,5 +1748,4 @@ html, body {
     width: 90vw !important;
     max-width: 380px !important;
   }
-}
 }
