@@ -171,6 +171,45 @@
 	}
 })(jQuery);
 
+(function() {
+  // Wait for page to load
+  window.addEventListener('load', function() {
+    var modal = document.getElementById('videoModal');
+    var closeBtn = document.getElementById('videoCloseBtn');
+    var video = document.getElementById('videoPlayer');
+
+    if (!modal || !closeBtn || !video) {
+      console.log('Modal elements not found');
+      return;
+    }
+
+    // Show modal after 1 second
+    setTimeout(function() {
+      modal.classList.add('show');
+      video.play().catch(function(err) {
+        console.log('Autoplay blocked:', err);
+      });
+    }, 1000);
+
+    // Close on button click
+    closeBtn.addEventListener('click', function() {
+      modal.classList.remove('show');
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    // Close on outside click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('show');
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  });
+})();
+
+
 function toggleReadMore() {
 	var dots = document.getElementById("dots");
 	var moreText = document.getElementById("more-text");
