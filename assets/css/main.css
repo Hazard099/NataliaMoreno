@@ -1660,25 +1660,6 @@ html, body {
         right: 75px !important; 
         padding: 0 1rem !important;
     }
-
-    .mobile-whatsapp-float {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 25px;
-        right: 25px;
-        z-index: 10001;
-        background-color: #ffffff !important; 
-        color: #25d366 !important;            
-        width: 2.5rem;                         
-        height: 2.5rem;
-        border-radius: 50%;
-        font-size: 1.2rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        transition: all 0.3s ease;
-        border: 2px solid #3f016e !important; 
-    }
 }
  /* =========================
    VIDEO MODAL - BULLETPROOF
@@ -1750,3 +1731,4 @@ html, body {
     max-width: 380px !important;
   }
 }
+
