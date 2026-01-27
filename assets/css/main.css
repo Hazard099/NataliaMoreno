@@ -1802,14 +1802,6 @@ html, body {
     color: #FEAE33 !important;       /* Orange on touch/hover */
 }
 
-/* 4. Fix the Logo (Make it White) */
-.mobile-logo-wrapper img {
-    filter: brightness(0) invert(1); /* Turns the dark logo white */
-    opacity: 0.9;
-    max-width: 180px;                /* Keeps it neat */
-    margin-bottom: 2rem;
-}
-
 /* --- UNIFIED MOBILE BUTTONS (Refined) --- */
 .kit-nav-btn,
 .whatsapp-nav-btn {
