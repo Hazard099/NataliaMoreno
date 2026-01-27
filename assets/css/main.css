@@ -1854,3 +1854,37 @@ html, body {
 .kit-nav-btn {
     margin-top: 2.5rem !important; 
 }
+
+/* Fullscreen dark overlay */
+.image-modal {
+  position: fixed;
+  inset: 0; /* top right bottom left = 0 */
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* When active */
+.image-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Image styling */
+.image-modal__img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
