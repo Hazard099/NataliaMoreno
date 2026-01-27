@@ -170,28 +170,31 @@
 		});
 	}
 })(jQuery);
-
 document.addEventListener("DOMContentLoaded", () => {
-  const imageModal = document.getElementById("imageModal");
+  const modal = document.getElementById("imageModal");
+  const closeBtn = modal.querySelector(".image-modal__close");
 
-  // Show popup on page load
-  imageModal.classList.add("active");
+  // OPEN on load
+  modal.classList.add("active");
+  document.body.classList.add("modal-open");
+  document.body.style.overflow = "hidden";
 
-  // Close when clicking outside image
-  imageModal.addEventListener("click", (e) => {
-    if (e.target === imageModal) {
-      imageModal.classList.remove("active");
-    }
+  const closeModal = () => {
+    modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = "";
+  };
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
   });
 
-  // Close with ESC
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      imageModal.classList.remove("active");
-    }
+    if (e.key === "Escape") closeModal();
   });
 });
-
 
 
 function toggleReadMore() {
