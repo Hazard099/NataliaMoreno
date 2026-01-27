@@ -1732,3 +1732,133 @@ html, body {
   }
 }
 
+/* --- UNIFIED MOBILE BUTTONS (Kit & WhatsApp) --- */
+
+/* 1. Shared Layout & Dimensions (Makes them identical size) */
+.kit-nav-btn,
+.whatsapp-nav-btn {
+    display: flex !important;           /* Use flexbox to center content */
+    align-items: center;
+    justify-content: center;
+    
+    /* CONTROL SIZE HERE */
+    width: 100% !important;              /* Both take up 80% of screen width */
+    max-width: 320px !important;        /* Stops them from getting too huge */
+    height: 3.5rem !important;          /* Forces exact same height */
+    margin: 0.8rem auto !important;     /* Centers them horizontally + spacing */
+    
+    border-radius: 50px;                /* Identical bubble shape */
+    font-size: 1rem !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+/* 2. Specific Style: Kit de Campaña (Purple) */
+.kit-nav-btn {
+    background-color: #3f016e !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important; /* White border to pop */
+}
+
+/* 3. Specific Style: WhatsApp (Green) */
+.whatsapp-nav-btn {
+    background-color: #25d366 !important;
+    color: #ffffff !important;
+    border: none !important;              /* No border for WhatsApp */
+}
+
+/* WhatsApp Icon spacing */
+.whatsapp-nav-btn i {
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+/* Hover Effects */
+.kit-nav-btn:hover, .whatsapp-nav-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 1. Make the overlay darker for better readability */
+#mobile-menu-overlay {
+    background: rgba(18, 18, 18, 0.98) !important; /* Almost solid black */
+}
+
+/* 2. Sleek Typography for Menu Links */
+#mobile-menu-overlay ul li a {
+    border-bottom: none !important;  /* Removes the dotted lines */
+    font-family: "Source Sans Pro", sans-serif; /* Clean sans-serif */
+    font-weight: 600 !important;     /* Lighter than the current 900 */
+    font-size: 1.25rem !important;   /* Slightly smaller for elegance */
+    letter-spacing: 0.15em;          /* Adds spacing for a premium look */
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+
+/* 3. Add Hover Effect */
+#mobile-menu-overlay ul li a:not(.kit-nav-btn):not(.whatsapp-nav-btn):hover {
+    color: #FEAE33 !important;       /* Orange on touch/hover */
+}
+
+/* 4. Fix the Logo (Make it White) */
+.mobile-logo-wrapper img {
+    filter: brightness(0) invert(1); /* Turns the dark logo white */
+    opacity: 0.9;
+    max-width: 180px;                /* Keeps it neat */
+    margin-bottom: 2rem;
+}
+
+/* --- UNIFIED MOBILE BUTTONS (Refined) --- */
+.kit-nav-btn,
+.whatsapp-nav-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    width: 100% !important;           /* Slightly wider to give text room */
+    max-width: 340px !important;
+    height: 3.5rem !important;       /* Fixed height for uniformity */
+    margin: 0.8rem auto !important;
+    
+    border-radius: 50px;
+    font-size: 0.9rem !important;    /* Smaller font prevents text wrapping */
+    letter-spacing: 0.05em;          /* Clean spacing */
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    transition: transform 0.2s ease;
+    white-space: nowrap;             /* Forces text to stay on one line */
+}
+
+/* Specific Colors remain the same */
+.kit-nav-btn {
+    background-color: #8F3292 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.3) !important; /* Subtle border */
+}
+
+.whatsapp-nav-btn {
+    background-color: #25d366 !important;
+    color: #ffffff !important;
+    border: none !important;
+}
+
+/* Fix Icon Spacing */
+.whatsapp-nav-btn i {
+    margin-right: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 2px; /* Visual alignment fix */
+}
+
+/* Pushes the buttons down to create a "Footer" feel in the menu */
+#mobile-menu-overlay ul li:nth-last-child(2) {
+    margin-top: 3rem !important;
+}
+
+/* Add extra top spacing specifically to the Kit button to separate groups */
+.kit-nav-btn {
+    margin-top: 2.5rem !important; 
+}
