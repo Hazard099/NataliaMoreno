@@ -1898,35 +1898,49 @@ html, body {
 /* ===== CLOSE BUTTON (BRIGHT + IMAGE CORNER) ===== */
 .image-modal__close {
   position: absolute;
-  top: -18px;
-  right: -18px;
+  top: -1px;
+  right: 7px;
 
-  width: 42px;
-  height: 42px;
-
-  background: #ffffff;
-  color: #000000;
+  background: none;
   border: none;
-  border-radius: 50%;
+  outline: none;
+  box-shadow: none;
 
-  font-size: 30px;
+  color: #ffffff;        /* pure white X */
+  font-size: 36px;
   font-weight: 700;
   line-height: 1;
+
   cursor: pointer;
+  padding: 0;
+  margin: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
-  transition: transform 0.15s ease, background 0.15s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* pop on purple */
 }
 
+/* Remove browser focus ring */
+.image-modal__close:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Optional hover polish */
 .image-modal__close:hover {
+  opacity: 0.85;
   transform: scale(1.08);
-  background: #f2f2f2;
 }
+
+.image-modal .image-modal__close {
+  color: white !important;
+}
+
 
 body.modal-open > *:not(.image-modal) {
   visibility: hidden;
+}
+
+@media (max-width: 600px) {
+  .image-modal__close {
+    font-size: 24px;   /* smaller X on mobile */
+  }
 }
